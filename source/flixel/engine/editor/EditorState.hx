@@ -1,9 +1,10 @@
 package flixel.engine.editor;
 
+import flixel.text.FlxText;
 import flixel.engine.editor.ui.EditorIcon;
 import flixel.util.FlxColor;
 
-class EditorState extends FlxState
+class EditorState extends FlxEngineState
 {
 	var editorCamera:FlxCamera;
 
@@ -23,6 +24,10 @@ class EditorState extends FlxState
 		leaveIcon = new EditorIcon('X', 8, 8);
 		add(leaveIcon);
 		leaveIcon.onClicked = onLeaveIconClicked;
+
+		watermarkText = new FlxText(0, 0, FlxG.height, 'FlxEngine v${FlxG.stage.application.meta.get('version')}', 16);
+		watermarkText.y = FlxG.height - watermarkText.height;
+		add(watermarkText);
 	}
 
 	function onLeaveIconClicked(icon:EditorIcon)
