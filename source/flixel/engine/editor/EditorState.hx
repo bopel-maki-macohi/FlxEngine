@@ -14,11 +14,13 @@ class EditorState extends FlxEngineScreenState<EditorState>
 
 	public var screen_noProject:EditorNoProjectScreen;
 	public var screen_newProject:EditorNewProjectScreen;
+	public var screen_loadProject:EditorLoadProjectScreen;
 
 	override function create()
 	{
 		addScreen(screen_noProject = new EditorNoProjectScreen(this));
 		addScreen(screen_newProject = new EditorNewProjectScreen(this));
+		addScreen(screen_loadProject = new EditorLoadProjectScreen(this));
 
 		super.create();
 

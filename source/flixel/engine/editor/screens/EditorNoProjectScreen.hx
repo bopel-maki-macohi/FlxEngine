@@ -45,6 +45,6 @@ class EditorNoProjectScreen extends EditorScreen
 
 	function onLoadProject()
 	{
-		trace('Load Project');
+		parent.setCurrentScreen(parent.screen_loadProject.id);
 	}
 }
