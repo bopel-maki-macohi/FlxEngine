@@ -2,9 +2,9 @@ package flixel.engine.screens;
 
 import flixel.group.FlxContainer.FlxTypedContainer;
 
-class FlxEngineScreenState extends FlxEngineState
+class FlxEngineScreenState<T> extends FlxEngineState
 {
-	public var screens:FlxTypedContainer<FlxEngineScreen>;
+	public var screens:FlxTypedContainer<FlxEngineScreen<T>>;
 
 	public var currentScreen(default, set):String;
 
@@ -25,10 +25,10 @@ class FlxEngineScreenState extends FlxEngineState
 	{
 		super();
 
-		screens = new FlxTypedContainer<FlxEngineScreen>();
+		screens = new FlxTypedContainer<FlxEngineScreen<T>>();
 	}
 
-	public function addScreen(screen:FlxEngineScreen)
+	public function addScreen(screen:FlxEngineScreen<T>)
 	{
 		if (screen == null)
 			return;
@@ -39,7 +39,7 @@ class FlxEngineScreenState extends FlxEngineState
 		screens.add(screen);
 	}
 
-	public function removeScreen(screen:FlxEngineScreen)
+	public function removeScreen(screen:FlxEngineScreen<T>)
 	{
 		if (screen.members.indexOf(screen) < 0)
 			return;

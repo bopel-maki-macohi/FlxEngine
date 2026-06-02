@@ -1,22 +1,24 @@
 package flixel.engine.editor;
 
-import flixel.engine.editor.screens.EditorNoProjectScreen;
+import flixel.engine.editor.screens.*;
 import flixel.engine.screens.FlxEngineScreenState;
 import flixel.text.FlxText;
 import flixel.engine.editor.ui.EditorIcon;
 import flixel.util.FlxColor;
 
-class EditorState extends FlxEngineScreenState
+class EditorState extends FlxEngineScreenState<EditorState>
 {
 	var editorCamera:FlxCamera;
 
 	var leaveIcon:EditorIcon;
 
-	var screen_noProject:EditorNoProjectScreen;
+	public var screen_noProject:EditorNoProjectScreen;
+	public var screen_newProject:EditorNewProjectScreen;
 
 	override function create()
 	{
-		addScreen(screen_noProject = new EditorNoProjectScreen());
+		addScreen(screen_noProject = new EditorNoProjectScreen(this));
+		addScreen(screen_newProject = new EditorNewProjectScreen(this));
 
 		super.create();
 

@@ -4,16 +4,16 @@ import flixel.ui.FlxButton;
 import flixel.text.FlxText;
 import flixel.engine.screens.FlxEngineScreen;
 
-class EditorNoProjectScreen extends FlxEngineScreen
+class EditorNoProjectScreen extends EditorScreen
 {
 	var noProjectLoaded:FlxText;
 
 	var projectNewButton:FlxButton;
 	var projectLoadButton:FlxButton;
 
-	override public function new()
+	override public function new(parent:EditorState)
 	{
-		super('editor.noProjectLoaded');
+		super('editor.noProjectLoaded', parent);
 	}
 
 	override function create()
@@ -38,7 +38,13 @@ class EditorNoProjectScreen extends FlxEngineScreen
 		projectLoadButton.x += projectLoadButton.width;
 	}
 
-	function onNewProject() {}
+	function onNewProject()
+	{
+		parent.setCurrentScreen(parent.screen_newProject.id);
+	}
 
-	function onLoadProject() {}
+	function onLoadProject()
+	{
+		trace('Load Project');
+	}
 }
