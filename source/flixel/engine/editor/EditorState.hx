@@ -1,5 +1,6 @@
 package flixel.engine.editor;
 
+import flixel.engine.util.Constants;
 import flixel.engine.editor.screens.*;
 import flixel.engine.screens.FlxEngineScreenState;
 import flixel.text.FlxText;
@@ -35,7 +36,7 @@ class EditorState extends FlxEngineScreenState<EditorState>
 		add(leaveIcon);
 		leaveIcon.onClicked = onLeaveIconClicked;
 
-		watermarkText = new FlxText(0, 0, FlxG.height, 'FlxEngine v${FlxG.stage.application.meta.get('version')}', 16);
+		watermarkText = new FlxText(0, 0, FlxG.height, 'FlxEngine v${Constants.VERSION_FULL}', 16);
 		watermarkText.y = FlxG.height - watermarkText.height;
 		add(watermarkText);
 
