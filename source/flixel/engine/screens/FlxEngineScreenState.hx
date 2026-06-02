@@ -27,7 +27,7 @@ class FlxEngineScreenState<T> extends FlxEngineState
 		return newScreen.toLowerCase();
 	}
 
-	public var onScreenChange:FlxEngineEventSignal<ScreenChangeEvent> = new FlxEngineEventSignal<ScreenChangeEvent>();
+	public var onScreenChange:FlxEngineEventSignal<ScreenChangeEventData> = new FlxEngineEventSignal<ScreenChangeEventData>();
 
 	public function setCurrentScreen(newScreen:String):Void
 	{
