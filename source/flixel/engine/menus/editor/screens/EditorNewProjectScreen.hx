@@ -1,5 +1,6 @@
 package flixel.engine.menus.editor.screens;
 
+import sys.io.File;
 import flixel.engine.graphics.FlxEngineInputLabelText;
 import flixel.engine.graphics.FlxEngineButton;
 import flixel.text.FlxText;
@@ -48,7 +49,18 @@ class EditorNewProjectScreen extends EditorScreen
 		add(createButton);
 		createButton.screenCenter(X);
 		createButton.y = FlxG.height - createButton.height * 2;
+
+		generatedProject = new EditorProject();
 	}
 
-	function onCreateClicked() {}
+	var generatedProject:EditorProject;
+
+	function onCreateClicked()
+	{
+		generatedProject.name = projectNameInput.text;
+		generatedProject.author = projectAuthorInput.text;
+		generatedProject.description = projectDescriptionInput.text;
+
+		EditorProject.addProject(generatedProject);
+	}
 }

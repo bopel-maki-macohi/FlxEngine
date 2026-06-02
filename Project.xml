@@ -7,11 +7,16 @@
 
 	<app title="FlxEngine" file="FlxEngine" />
 	<app main="flixel.engine.Project" />
-	<app version="0.1" company="Maki" />
+	<app version="0.1.0" company="Maki" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />
+	
+	<haxelib name="json2object" />
+	<haxelib name="json5hx" />
+
+	<haxelib name="thx.semver" />
 
 	<!-- _________________________ Application Settings _________________________ -->
 

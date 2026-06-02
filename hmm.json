@@ -9,6 +9,21 @@
       "name": "hxcpp",
       "type": "haxelib",
       "version": null
+    },
+    {
+      "name": "json2object",
+      "type": "haxelib",
+      "version": null
+    },
+    {
+      "name": "json5hx",
+      "type": "haxelib",
+      "version": null
+    },
+    {
+      "name": "thx.semver",
+      "type": "haxelib",
+      "version": null
     }
   ]
 }

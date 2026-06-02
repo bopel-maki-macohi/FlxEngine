@@ -9,7 +9,7 @@ class Constants
 	public static var VERSION(get, never):String;
 
 	static function get_VERSION():String
-		return FlxG.stage.application.meta.get('version');
+		return FlxG.stage?.application?.meta.get('version') ?? '0.0.0';
 
 	public static var VERSION_FULL(get, never):String;
 
