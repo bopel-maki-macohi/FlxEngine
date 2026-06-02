@@ -1,8 +1,8 @@
 package flixel.engine.graphics;
 
-class InteractableSprite extends FlxEngineSprite
+class FlxEngineInteractableSprite extends FlxEngineSprite
 {
-	public var onClicked:InteractableSprite->Void;
+	public var onClicked:FlxEngineInteractableSprite->Void;
 
 	public var icon:String;
 

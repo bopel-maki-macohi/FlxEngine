@@ -5,14 +5,14 @@ import flixel.engine.menus.editor.screens.notloaded.*;
 import flixel.engine.menus.editor.screens.loaded.*;
 import flixel.engine.screens.FlxEngineScreenState;
 import flixel.text.FlxText;
-import flixel.engine.graphics.InteractableSprite;
+import flixel.engine.graphics.FlxEngineInteractableSprite;
 import flixel.util.FlxColor;
 
 class EditorState extends FlxEngineScreenState<EditorState>
 {
 	public var editorCamera:FlxCamera;
 
-	public var leaveIcon:InteractableSprite;
+	public var leaveIcon:FlxEngineInteractableSprite;
 
 	public var project:EditorProject = new EditorProject();
 
@@ -24,7 +24,7 @@ class EditorState extends FlxEngineScreenState<EditorState>
 
 	override function create()
 	{
-		leaveIcon = new InteractableSprite('X', 8, 8);
+		leaveIcon = new FlxEngineInteractableSprite('X', 8, 8);
 
 		editorCamera = new FlxCamera();
 		FlxG.cameras.add(editorCamera, true);
@@ -58,7 +58,7 @@ class EditorState extends FlxEngineScreenState<EditorState>
 			setCurrentScreen(screen_project.id);
 	}
 
-	function onLeaveIconClicked(icon:InteractableSprite)
+	function onLeaveIconClicked(icon:FlxEngineInteractableSprite)
 	{
 		Sys.exit(0);
 	}

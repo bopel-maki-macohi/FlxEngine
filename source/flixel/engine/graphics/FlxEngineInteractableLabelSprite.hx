@@ -3,9 +3,9 @@ package flixel.engine.graphics;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.text.FlxText;
 
-typedef InteractableLabelSpriteGroup = FlxTypedSpriteGroup<InteractableLabelSprite>;
+typedef FlxEngineInteractableLabelSpriteGroup = FlxTypedSpriteGroup<FlxEngineInteractableLabelSprite>;
 
-class InteractableLabelSprite extends InteractableSprite
+class FlxEngineInteractableLabelSprite extends FlxEngineInteractableSprite
 {
 	public var label:FlxText;
 
@@ -33,7 +33,7 @@ class InteractableLabelSprite extends InteractableSprite
 		super.update(elapsed);
 
 		label.x = this.x + this.width;
-		label.y = this.y + label.height / 2;
+		label.y = this.y + this.height / 2;
 	}
 
 	override function draw()
