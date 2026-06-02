@@ -1,10 +1,13 @@
 package flixel.engine.editor;
 
+import flixel.engine.editor.ui.EditorIcon;
 import flixel.util.FlxColor;
 
 class EditorState extends FlxState
 {
 	var editorCamera:FlxCamera;
+
+	var leaveIcon:EditorIcon;
 
 	override function create()
 	{
@@ -16,5 +19,14 @@ class EditorState extends FlxState
 		FlxG.cameras.add(editorCamera, true);
 		editorCamera.bgColor = FlxColor.GRAY;
 		editorCamera.bgColor.brightness *= 0.25;
+
+		leaveIcon = new EditorIcon('X', 8, 8);
+		add(leaveIcon);
+		leaveIcon.onClicked = onLeaveIconClicked;
+	}
+
+	function onLeaveIconClicked()
+	{
+		Sys.exit(0);
 	}
 }
