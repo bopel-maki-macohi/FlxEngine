@@ -10,6 +10,8 @@ class EditorState extends FlxEngineState
 
 	var leaveIcon:EditorIcon;
 
+	var noProjectLoaded:FlxText;
+
 	override function create()
 	{
 		super.create();
@@ -24,6 +26,10 @@ class EditorState extends FlxEngineState
 		leaveIcon = new EditorIcon('X', 8, 8);
 		add(leaveIcon);
 		leaveIcon.onClicked = onLeaveIconClicked;
+
+		noProjectLoaded = new FlxText(0, 0, 0, 'No Project Loaded', 16);
+		add(noProjectLoaded);
+		noProjectLoaded.screenCenter();
 
 		watermarkText = new FlxText(0, 0, FlxG.height, 'FlxEngine v${FlxG.stage.application.meta.get('version')}', 16);
 		watermarkText.y = FlxG.height - watermarkText.height;
