@@ -25,7 +25,7 @@ class EditorState extends FlxState
 		leaveIcon.onClicked = onLeaveIconClicked;
 	}
 
-	function onLeaveIconClicked()
+	function onLeaveIconClicked(icon:EditorIcon)
 	{
 		Sys.exit(0);
 	}
