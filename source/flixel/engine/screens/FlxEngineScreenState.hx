@@ -56,4 +56,22 @@ class FlxEngineScreenState<T> extends FlxEngineState
 		for (screen in screens)
 			screen.create();
 	}
+
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+
+		#if debug
+		FlxG.watch.addQuick('Current Screen', currentScreen);
+		#end
+	}
+
+	override function destroy()
+	{
+		super.destroy();
+
+		#if debug
+		FlxG.watch.removeQuick('Current Screen');
+		#end
+	}
 }
