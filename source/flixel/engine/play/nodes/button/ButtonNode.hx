@@ -1,17 +1,18 @@
-package flixel.engine.graphics;
+package flixel.engine.play.nodes.button;
 
-import flixel.input.IFlxInput;
+import flixel.engine.util.Constants;
 import flixel.input.FlxPointer;
+import flixel.input.IFlxInput;
 import flixel.math.FlxPoint;
 import flixel.ui.FlxButton;
 
-class FlxEngineButton extends FlxButton
+class ButtonNode extends FlxButton
 {
 	override public function new(x:Float = 0, y:Float = 0, ?text:String, ?onClick:Void->Void, ?scale:Null<Float>)
 	{
 		super(x, y, text, onClick);
 
-		setScale(scale ?? FlxEngineSprite.DEFAULT_SCALE);
+		setScale(scale ?? Constants.DEFAULT_SPRITE_SCALE);
 	}
 
 	public function setScale(scale:Float, ?refreshLabelOffsets:Bool = true)

@@ -1,13 +1,11 @@
-package flixel.engine.graphics;
+package flixel.engine.play.nodes.text;
 
-import flixel.text.FlxText;
 import flixel.text.FlxInputTextManager;
 import flixel.util.FlxColor;
-import flixel.text.FlxInputText;
 
-class FlxEngineInputLabelText extends FlxInputText
+class InputLabelNode extends InputTextNode
 {
-	var _label:FlxText;
+	var _label:TextNode;
 
 	public var label(get, set):String;
 
@@ -26,7 +24,7 @@ class FlxEngineInputLabelText extends FlxInputText
 	{
 		super(x, y, fieldWidth, '', size, textColor, backgroundColor, embeddedFont, manager);
 
-		_label = new FlxText(0, 0, 0, labelText, 16);
+		_label = new TextNode(0, 0, 0, labelText, 16);
 	}
 
 	override function update(elapsed:Float)

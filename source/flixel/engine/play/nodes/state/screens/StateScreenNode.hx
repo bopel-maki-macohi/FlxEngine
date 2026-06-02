@@ -1,13 +1,12 @@
-package flixel.engine.screens;
+package flixel.engine.play.nodes.state.screens;
 
-import flixel.engine.util.events.FlxEngineEventSignal;
-import flixel.engine.util.events.ui.ScreenChangeEvent;
-import flixel.engine.util.events.FlxEngineEvent;
+import flixel.engine.play.events.ui.ScreenChangeEvent;
+import flixel.engine.play.events.FlxEngineEvent;
 import flixel.group.FlxContainer.FlxTypedContainer;
 
-class FlxEngineScreenState<T> extends FlxEngineState
+class StateScreenNode<T> extends StateNode
 {
-	public var screens:FlxTypedContainer<FlxEngineScreen<T>>;
+	public var screens:FlxTypedContainer<ScreenNode<T>>;
 
 	public var currentScreen(default, set):String;
 
@@ -45,10 +44,10 @@ class FlxEngineScreenState<T> extends FlxEngineState
 	{
 		super();
 
-		screens = new FlxTypedContainer<FlxEngineScreen<T>>();
+		screens = new FlxTypedContainer<ScreenNode<T>>();
 	}
 
-	public function addScreen(screen:FlxEngineScreen<T>)
+	public function addScreen(screen:ScreenNode<T>)
 	{
 		if (screen == null)
 			return;
@@ -60,7 +59,7 @@ class FlxEngineScreenState<T> extends FlxEngineState
 		screens.add(screen);
 	}
 
-	public function removeScreen(screen:FlxEngineScreen<T>)
+	public function removeScreen(screen:ScreenNode<T>)
 	{
 		if (screen.members.indexOf(screen) < 0)
 			return;

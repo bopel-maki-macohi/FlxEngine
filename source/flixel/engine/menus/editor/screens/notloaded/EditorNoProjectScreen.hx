@@ -1,14 +1,14 @@
 package flixel.engine.menus.editor.screens.notloaded;
 
-import flixel.engine.graphics.FlxEngineButton;
-import flixel.text.FlxText;
+import flixel.engine.play.nodes.button.ButtonNode;
+import flixel.engine.play.nodes.text.TextNode;
 
 class EditorNoProjectScreen extends EditorScreen
 {
-	var noProjectLoaded:FlxText;
+	var noProjectLoaded:TextNode;
 
-	var projectNewButton:FlxEngineButton;
-	var projectLoadButton:FlxEngineButton;
+	var projectNewButton:ButtonNode;
+	var projectLoadButton:ButtonNode;
 
 	override public function new(parent:EditorState)
 	{
@@ -19,18 +19,18 @@ class EditorNoProjectScreen extends EditorScreen
 	{
 		super.create();
 
-		noProjectLoaded = new FlxText(0, 0, 0, 'No Project Loaded', 16);
+		noProjectLoaded = new TextNode(0, 0, 0, 'No Project Loaded', 16);
 		add(noProjectLoaded);
 		noProjectLoaded.screenCenter();
 		noProjectLoaded.y -= noProjectLoaded.height;
 
-		projectNewButton = new FlxEngineButton(0, 0, 'New Project', onNewProject);
+		projectNewButton = new ButtonNode(0, 0, 'New Project', onNewProject);
 		add(projectNewButton);
 		projectNewButton.screenCenter();
 		projectNewButton.y += projectNewButton.height;
 		projectNewButton.x -= projectNewButton.width;
 
-		projectLoadButton = new FlxEngineButton(0, 0, 'Load Project', onLoadProject);
+		projectLoadButton = new ButtonNode(0, 0, 'Load Project', onLoadProject);
 		add(projectLoadButton);
 		projectLoadButton.screenCenter();
 		projectLoadButton.y += projectLoadButton.height;

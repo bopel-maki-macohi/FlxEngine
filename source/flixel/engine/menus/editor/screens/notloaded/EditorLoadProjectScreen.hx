@@ -1,9 +1,9 @@
 package flixel.engine.menus.editor.screens.notloaded;
 
-import flixel.util.FlxColor;
-import flixel.math.FlxMath;
-import flixel.engine.graphics.FlxEngineInteractableLabelSprite;
 import sys.FileSystem;
+import flixel.engine.play.nodes.button.ButtonLabelSpriteNode;
+import flixel.math.FlxMath;
+import flixel.util.FlxColor;
 
 class EditorLoadProjectScreen extends EditorScreen
 {
@@ -70,7 +70,7 @@ class EditorLoadProjectScreen extends EditorScreen
 
 		for (i => project in projects)
 		{
-			var ILS = new FlxEngineInteractableLabelSprite(project, 'file', 16, 16, 4);
+			var ILS = new ButtonLabelSpriteNode(project, 'file', 16, 16, 4);
 			ILSGroup.add(ILS);
 
 			ILS.screenCenter(X);

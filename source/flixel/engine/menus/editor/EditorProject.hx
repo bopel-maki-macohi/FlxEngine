@@ -1,14 +1,12 @@
 package flixel.engine.menus.editor;
 
-import flixel.engine.util.VersionUtil;
-import haxe.Json;
-import sys.io.File;
-import sys.FileSystem;
-import thx.semver.Version;
-import flixel.engine.util.Constants;
 import json2object.JsonParser;
 import json2object.JsonWriter;
-import thx.semver.VersionRule;
+import sys.FileSystem;
+import sys.io.File;
+import thx.semver.Version;
+import flixel.engine.util.Constants;
+import flixel.engine.util.VersionUtil;
 
 class EditorProject
 {

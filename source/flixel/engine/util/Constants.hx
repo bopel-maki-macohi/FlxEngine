@@ -15,4 +15,6 @@ class Constants
 
 	static function get_VERSION_FULL():String
 		return '$VERSION ($GIT_COMMIT)';
+
+	public static final DEFAULT_SPRITE_SCALE:Float = 2;
 }

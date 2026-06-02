@@ -1,6 +1,6 @@
 package flixel.engine.menus.editor.screens.loaded;
 
-import flixel.engine.graphics.FlxEngineButton;
+import flixel.engine.play.nodes.button.ButtonNode;
 
 class EditorLoadedProjectScreen extends EditorScreen
 {
@@ -9,13 +9,13 @@ class EditorLoadedProjectScreen extends EditorScreen
 		super('editor.projectLoaded', parent);
 	}
 
-	var back:FlxEngineButton;
+	var back:ButtonNode;
 
 	override function create()
 	{
 		super.create();
 
-		back = new FlxEngineButton(0, 0, 'Back', () -> parent.setCurrentScreen(parent.screen_noProject.id));
+		back = new ButtonNode(0, 0, 'Back', () -> parent.setCurrentScreen(parent.screen_noProject.id));
 		add(back);
 		back.screenCenter();
 	}

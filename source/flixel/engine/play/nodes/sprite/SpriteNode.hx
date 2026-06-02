@@ -1,16 +1,15 @@
-package flixel.engine.graphics;
+package flixel.engine.play.nodes.sprite;
 
+import flixel.engine.util.Constants;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 
-class FlxEngineSprite extends FlxSprite
+class SpriteNode extends FlxSprite
 {
-	public static final DEFAULT_SCALE:Float = 2;
-
 	override public function new(?x:Float = 0.0, ?y:Float = 0.0, ?simpleGraphic:FlxGraphicAsset, ?scale:Null<Float>)
 	{
 		super(x, y, simpleGraphic);
 
-        setScale(scale ?? DEFAULT_SCALE);
+		setScale(scale ?? Constants.DEFAULT_SPRITE_SCALE);
 	}
 
 	public function setScale(scale:Float)

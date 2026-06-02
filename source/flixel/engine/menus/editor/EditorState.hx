@@ -1,18 +1,19 @@
 package flixel.engine.menus.editor;
 
-import flixel.engine.util.Constants;
-import flixel.engine.menus.editor.screens.notloaded.*;
 import flixel.engine.menus.editor.screens.loaded.*;
-import flixel.engine.screens.FlxEngineScreenState;
-import flixel.text.FlxText;
-import flixel.engine.graphics.FlxEngineInteractableSprite;
+import flixel.engine.menus.editor.screens.notloaded.*;
+import flixel.engine.play.nodes.button.ButtonIconSpriteNode;
+import flixel.engine.play.nodes.button.ButtonSpriteNode;
+import flixel.engine.play.nodes.state.screens.StateScreenNode;
+import flixel.engine.play.nodes.text.TextNode;
+import flixel.engine.util.Constants;
 import flixel.util.FlxColor;
 
-class EditorState extends FlxEngineScreenState<EditorState>
+class EditorState extends StateScreenNode<EditorState>
 {
 	public var editorCamera:FlxCamera;
 
-	public var leaveIcon:FlxEngineInteractableSprite;
+	public var leaveIcon:ButtonIconSpriteNode;
 
 	public var project:EditorProject = new EditorProject();
 
@@ -24,7 +25,7 @@ class EditorState extends FlxEngineScreenState<EditorState>
 
 	override function create()
 	{
-		leaveIcon = new FlxEngineInteractableSprite('X', 8, 8);
+		leaveIcon = new ButtonIconSpriteNode('X', 8, 8);
 
 		editorCamera = new FlxCamera();
 		FlxG.cameras.add(editorCamera, true);
@@ -47,7 +48,7 @@ class EditorState extends FlxEngineScreenState<EditorState>
 		leaveIcon.color = FlxColor.RED;
 		leaveIcon.scrollFactor.set();
 
-		watermarkText = new FlxText(0, 0, FlxG.height, 'FlxEngine v${Constants.VERSION_FULL}', 16);
+		watermarkText = new TextNode(0, 0, FlxG.height, 'FlxEngine v${Constants.VERSION_FULL}', 16);
 		watermarkText.y = FlxG.height - watermarkText.height;
 		add(watermarkText);
 		watermarkText.scrollFactor.set();
@@ -58,7 +59,7 @@ class EditorState extends FlxEngineScreenState<EditorState>
 			setCurrentScreen(screen_project.id);
 	}
 
-	function onLeaveIconClicked(icon:FlxEngineInteractableSprite)
+	function onLeaveIconClicked(icon:ButtonSpriteNode)
 	{
 		Sys.exit(0);
 	}

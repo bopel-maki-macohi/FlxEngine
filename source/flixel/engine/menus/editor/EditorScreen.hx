@@ -1,6 +1,6 @@
 package flixel.engine.menus.editor;
 
 import flixel.engine.menus.editor.EditorState;
-import flixel.engine.screens.FlxEngineScreen;
+import flixel.engine.play.nodes.state.screens.ScreenNode;
 
-typedef EditorScreen = FlxEngineScreen<EditorState>;
+typedef EditorScreen = ScreenNode<EditorState>;

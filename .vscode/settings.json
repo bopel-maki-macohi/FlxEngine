@@ -1,6 +1,5 @@
 {
     "git.postCommitCommand": "none",
-
     "lime.defaultTargetConfiguration": "Windows / Debug",
     "lime.targets": [
         {
@@ -79,4 +78,12 @@
             ]
         }
     ],
+    "haxe.importsSortOrder": "non-project -> project",
+    "[haxe]": {
+        "editor.codeActionsOnSave": {
+            "source.sortImports": "always"
+        },
+        "editor.suggestSelection": "first",
+        "editor.inlayHints.enabled": "off"
+    }
 }

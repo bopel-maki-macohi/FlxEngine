@@ -1,4 +1,8 @@
-package flixel.engine.util.events;
+package flixel.engine.play.events;
+
+import flixel.util.FlxSignal.FlxTypedSignal;
+
+typedef FlxEngineEventSignal<T> = FlxTypedSignal<FlxEngineEvent<T>->Void>;
 
 class FlxEngineEvent<T>
 {

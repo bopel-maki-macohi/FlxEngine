@@ -1,13 +1,13 @@
-package flixel.engine.graphics;
+package flixel.engine.play.nodes.button;
 
+import flixel.engine.play.nodes.text.TextNode;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
-import flixel.text.FlxText;
 
-typedef FlxEngineInteractableLabelSpriteGroup = FlxTypedSpriteGroup<FlxEngineInteractableLabelSprite>;
+typedef FlxEngineInteractableLabelSpriteGroup = FlxTypedSpriteGroup<ButtonLabelSpriteNode>;
 
-class FlxEngineInteractableLabelSprite extends FlxEngineInteractableSprite
+class ButtonLabelSpriteNode extends ButtonIconSpriteNode
 {
-	public var label:FlxText;
+	public var label:TextNode;
 
 	public var labelText(get, set):String;
 
@@ -25,7 +25,7 @@ class FlxEngineInteractableLabelSprite extends FlxEngineInteractableSprite
 	{
 		super(icon, x, y, scale);
 
-		this.label = new FlxText(0, 0, 0, label, 16);
+		this.label = new TextNode(0, 0, 0, label, 16);
 	}
 
 	override function update(elapsed:Float)

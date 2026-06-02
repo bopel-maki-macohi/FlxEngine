@@ -1,6 +1,6 @@
-package flixel.engine.screens;
+package flixel.engine.play.nodes.state.screens;
 
-class FlxEngineScreen<T> extends FlxState
+class ScreenNode<T> extends FlxState
 {
 	public var id(default, null):String;
 	public var parent(default, null):T;
