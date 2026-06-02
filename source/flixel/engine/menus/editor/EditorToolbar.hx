@@ -15,6 +15,8 @@ class EditorToolbar extends ToolbarNode
 	{
 		super(width, 48);
 
+		_bg.alpha = .5;
+
 		this.parent = parent;
 	}
 
