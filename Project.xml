@@ -5,8 +5,9 @@
 
 	<!-- _________________________________ Custom _______________________________ -->
 
-	<app title="FlxEngine" file="FlxEngine" main="Main" company="Maki" />
-	<app version="0.1" />
+	<app title="FlxEngine" file="FlxEngine" />
+	<app main="flixel.engine.Project" />
+	<app version="0.1" company="Maki" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 

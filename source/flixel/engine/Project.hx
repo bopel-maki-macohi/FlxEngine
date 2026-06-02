@@ -1,10 +1,9 @@
-package;
+package flixel.engine;
 
-import flixel.engine.InitState;
 import flixel.FlxGame;
 import openfl.display.Sprite;
 
-class Main extends Sprite
+class Project extends Sprite
 {
 	public function new()
 	{
