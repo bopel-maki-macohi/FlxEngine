@@ -30,7 +30,7 @@ class FlxEngineButton extends FlxButton
 
 	public static var labelOffsetsList:Map<FlxPoint, Array<FlxPoint>> = [
 		FlxPoint.get(1, 1) => [FlxPoint.get(0, 2), FlxPoint.get(0, 2), FlxPoint.get(0, 3), FlxPoint.get(0, 2)],
-		FlxPoint.get(2, 2) => [FlxPoint.get(0, 4), FlxPoint.get(0, 4), FlxPoint.get(0, 5), FlxPoint.get(0, 4)],
+		FlxPoint.get(2, 2) => [FlxPoint.get(0, 5), FlxPoint.get(0, 5), FlxPoint.get(0, 6), FlxPoint.get(0, 5)],
 	];
 
 	public function refreshLabelOffsets()
@@ -67,7 +67,7 @@ class FlxEngineButton extends FlxButton
 
 	override function checkInput(pointer:FlxPointer, input:IFlxInput, justPressedPosition:FlxPoint, camera:FlxCamera):Bool
 	{
-        if (pointer.overlaps(this))
+		if (pointer.overlaps(this))
 		{
 			updateStatus(input);
 			return true;
