@@ -9,7 +9,8 @@ class SpriteNode extends FlxSprite
 	{
 		super(x, y, simpleGraphic);
 
-		setScale(scale ?? Constants.DEFAULT_SPRITE_SCALE);
+		if (graphic != null)
+			setScale(scale ?? Constants.DEFAULT_SPRITE_SCALE);
 	}
 
 	public function setScale(scale:Float)

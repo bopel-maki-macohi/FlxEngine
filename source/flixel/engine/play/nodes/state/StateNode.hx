@@ -4,5 +4,5 @@ import flixel.engine.play.nodes.text.TextNode;
 
 class StateNode extends FlxState
 {
-	var watermarkText:TextNode;
+	public var watermarkText:TextNode;
 }

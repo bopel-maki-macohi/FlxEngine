@@ -19,7 +19,7 @@ class ButtonSpriteNode extends SpriteNode
 		}
 		else
 		{
-			alpha = 0.75;
+			alpha = 0.5;
 		}
 	}
 }

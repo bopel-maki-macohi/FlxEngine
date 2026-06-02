@@ -1,6 +1,6 @@
 package flixel.engine.menus.editor.screens.loaded;
 
-import flixel.engine.play.nodes.button.ButtonNode;
+import flixel.engine.play.nodes.text.TextNode;
 
 class EditorLoadedProjectScreen extends EditorScreen
 {
@@ -9,15 +9,15 @@ class EditorLoadedProjectScreen extends EditorScreen
 		super('editor.projectLoaded', parent);
 	}
 
-	var back:ButtonNode;
+	var projectLabel:TextNode;
 
 	override function create()
 	{
 		super.create();
 
-		back = new ButtonNode(0, 0, 'Back', () -> parent.setCurrentScreen(parent.screen_noProject.id));
-		add(back);
-		back.screenCenter();
+		projectLabel = new TextNode(0, 0, 0, 'Project: ${parent.project.name}', 32);
+		add(projectLabel);
+		projectLabel.y = parent.toolbar.bottom;
 	}
 
 	override function update(elapsed:Float)
