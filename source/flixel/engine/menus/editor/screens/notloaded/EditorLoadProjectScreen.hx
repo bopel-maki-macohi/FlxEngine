@@ -84,10 +84,6 @@ class EditorLoadProjectScreen extends EditorScreen
 
 		if (FlxG.keys.justPressed.ESCAPE)
 		{
-			// camFollow.y = FlxG.height / 2;
-			// parent.editorCamera.snapToTarget();
-
-			// parent.editorCamera.follow(null);
 			parent.setCurrentScreen(parent.screen_noProject.id);
 			return;
 		}
