@@ -14,7 +14,7 @@ class EditorLoadProjectScreen extends EditorScreen
 
 	public var projects:Array<String> = [];
 
-	var ILSGroup:FlxEngineInteractableLabelSpriteGroup;
+	var ILSGroup:ButtonLabelSpriteGroupNode;
 
 	var selected:Int = 0;
 
@@ -29,7 +29,7 @@ class EditorLoadProjectScreen extends EditorScreen
 		cam.bgColor.alpha = 0;
 		FlxG.cameras.add(cam, false);
 
-		ILSGroup = new FlxEngineInteractableLabelSpriteGroup();
+		ILSGroup = new ButtonLabelSpriteGroupNode();
 		add(ILSGroup);
 		ILSGroup.cameras = [cam];
 
@@ -70,7 +70,7 @@ class EditorLoadProjectScreen extends EditorScreen
 
 		for (i => project in projects)
 		{
-			var ILS = new ButtonLabelSpriteNode(project, 'file', 16, 16, 4);
+			var ILS = new ButtonLabelSpriteNode(project, 'project', 16, 16, 4);
 			ILSGroup.add(ILS);
 
 			ILS.screenCenter(X);

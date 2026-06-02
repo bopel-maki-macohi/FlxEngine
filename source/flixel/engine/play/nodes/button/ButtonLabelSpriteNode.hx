@@ -1,9 +1,6 @@
 package flixel.engine.play.nodes.button;
 
 import flixel.engine.play.nodes.text.TextNode;
-import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
-
-typedef FlxEngineInteractableLabelSpriteGroup = FlxTypedSpriteGroup<ButtonLabelSpriteNode>;
 
 class ButtonLabelSpriteNode extends ButtonIconSpriteNode
 {
