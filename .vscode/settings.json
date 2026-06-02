@@ -1,4 +1,6 @@
 {
+    "git.postCommitCommand": "none",
+
     "lime.defaultTargetConfiguration": "Windows / Debug",
     "lime.targets": [
         {

@@ -1,7 +1,6 @@
 package flixel.engine;
 
 import flixel.engine.editor.EditorState;
-import flixel.FlxState;
 
 class InitState extends FlxState
 {

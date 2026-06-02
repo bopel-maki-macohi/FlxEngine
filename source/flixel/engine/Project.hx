@@ -1,6 +1,5 @@
 package flixel.engine;
 
-import flixel.FlxGame;
 import openfl.display.Sprite;
 
 class Project extends Sprite
