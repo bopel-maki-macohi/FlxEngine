@@ -3,6 +3,9 @@ package flixel.engine.menus.editor.screens.notloaded;
 import flixel.engine.play.nodes.button.ButtonNode;
 import flixel.engine.play.nodes.text.InputLabelNode;
 import flixel.engine.play.nodes.text.TextNode;
+import flixel.engine.util.WindowUtil;
+
+using StringTools;
 
 class EditorNewProjectScreen extends EditorScreen
 {
@@ -56,6 +59,17 @@ class EditorNewProjectScreen extends EditorScreen
 
 	function onCreateClicked()
 	{
+		if (projectNameInput.text.trim().length < 0)
+		{
+			WindowUtil.alert('Missing Project Name');
+			return;
+		}
+
+		if (projectAuthorInput.text.trim().length < 0)
+			projectAuthorInput.text = 'N / A';
+		if (projectDescriptionInput.text.trim().length < 0)
+			projectDescriptionInput.text = 'N / A';
+
 		generatedProject.name = projectNameInput.text;
 		generatedProject.author = projectAuthorInput.text;
 		generatedProject.description = projectDescriptionInput.text;
