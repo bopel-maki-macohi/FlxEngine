@@ -1,21 +1,23 @@
 package flixel.engine.editor;
 
-import flixel.ui.FlxButton;
+import flixel.engine.editor.screens.EditorNoProjectScreen;
+import flixel.engine.screens.FlxEngineScreenState;
 import flixel.text.FlxText;
 import flixel.engine.editor.ui.EditorIcon;
 import flixel.util.FlxColor;
 
-class EditorState extends FlxEngineState
+class EditorState extends FlxEngineScreenState
 {
 	var editorCamera:FlxCamera;
 
 	var leaveIcon:EditorIcon;
 
-	var noProjectLoaded:FlxText;
-	var projectNewButton:FlxButton;
+	var screen_noProject:EditorNoProjectScreen;
 
 	override function create()
 	{
+		addScreen(screen_noProject = new EditorNoProjectScreen());
+
 		super.create();
 
 		trace('Hello World!');
@@ -29,25 +31,15 @@ class EditorState extends FlxEngineState
 		add(leaveIcon);
 		leaveIcon.onClicked = onLeaveIconClicked;
 
-		noProjectLoaded = new FlxText(0, 0, 0, 'No Project Loaded', 16);
-		add(noProjectLoaded);
-		noProjectLoaded.screenCenter();
-		noProjectLoaded.y -= noProjectLoaded.height;
-
-		projectNewButton = new FlxButton(0,0,'New Project', onNewProject);
-		add(projectNewButton);
-		projectNewButton.screenCenter();
-		projectNewButton.y += projectNewButton.height;
-
 		watermarkText = new FlxText(0, 0, FlxG.height, 'FlxEngine v${FlxG.stage.application.meta.get('version')}', 16);
 		watermarkText.y = FlxG.height - watermarkText.height;
 		add(watermarkText);
+
+		setCurrentScreen(screen_noProject.id);
 	}
 
 	function onLeaveIconClicked(icon:EditorIcon)
 	{
 		Sys.exit(0);
 	}
-
-	function onNewProject() {}
 }
