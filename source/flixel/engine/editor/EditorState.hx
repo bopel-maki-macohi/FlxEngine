@@ -1,5 +1,6 @@
 package flixel.engine.editor;
 
+import flixel.ui.FlxButton;
 import flixel.text.FlxText;
 import flixel.engine.editor.ui.EditorIcon;
 import flixel.util.FlxColor;
@@ -11,6 +12,7 @@ class EditorState extends FlxEngineState
 	var leaveIcon:EditorIcon;
 
 	var noProjectLoaded:FlxText;
+	var projectNewButton:FlxButton;
 
 	override function create()
 	{
@@ -30,6 +32,12 @@ class EditorState extends FlxEngineState
 		noProjectLoaded = new FlxText(0, 0, 0, 'No Project Loaded', 16);
 		add(noProjectLoaded);
 		noProjectLoaded.screenCenter();
+		noProjectLoaded.y -= noProjectLoaded.height;
+
+		projectNewButton = new FlxButton(0,0,'New Project', onNewProject);
+		add(projectNewButton);
+		projectNewButton.screenCenter();
+		projectNewButton.y += projectNewButton.height;
 
 		watermarkText = new FlxText(0, 0, FlxG.height, 'FlxEngine v${FlxG.stage.application.meta.get('version')}', 16);
 		watermarkText.y = FlxG.height - watermarkText.height;
@@ -40,4 +48,6 @@ class EditorState extends FlxEngineState
 	{
 		Sys.exit(0);
 	}
+
+	function onNewProject() {}
 }
