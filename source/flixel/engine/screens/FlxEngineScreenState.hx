@@ -1,5 +1,8 @@
 package flixel.engine.screens;
 
+import flixel.engine.events.FlxEngineEventSignal;
+import flixel.engine.events.ui.ScreenChangeEvent;
+import flixel.engine.events.FlxEngineEvent;
 import flixel.group.FlxContainer.FlxTypedContainer;
 
 class FlxEngineScreenState<T> extends FlxEngineState
@@ -16,9 +19,15 @@ class FlxEngineScreenState<T> extends FlxEngineState
 		#if debug
 		FlxG.watch.addQuick('Current Screen', newScreen.toLowerCase());
 		#end
-		
+
+		onScreenChange.dispatch(new ScreenChangeEvent({
+			previousScreen: this.currentScreen,
+			newScreen: newScreen.toLowerCase(),
+		}));
 		return newScreen.toLowerCase();
 	}
+
+	public var onScreenChange:FlxEngineEventSignal<ScreenChangeEvent> = new FlxEngineEventSignal<ScreenChangeEvent>();
 
 	public function setCurrentScreen(newScreen:String):Void
 	{
