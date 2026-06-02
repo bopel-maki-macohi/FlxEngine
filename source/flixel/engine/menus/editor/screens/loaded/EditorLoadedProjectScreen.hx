@@ -15,8 +15,15 @@ class EditorLoadedProjectScreen extends EditorScreen
 	{
 		super.create();
 
-		projectLabel = new TextNode(0, 0, 0, 'Project: ${parent.project.name}', 32);
+		projectLabel = new TextNode(0, 0, 0, '', 32);
 		add(projectLabel);
+	}
+
+	override function onOpened()
+	{
+		super.onOpened();
+
+		projectLabel.text = 'Project: ${parent.project.name}';
 		projectLabel.screenCenter();
 		projectLabel.y = parent.toolbar.bottom;
 	}

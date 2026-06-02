@@ -7,6 +7,9 @@ import sys.io.File;
 import thx.semver.Version;
 import flixel.engine.util.Constants;
 import flixel.engine.util.VersionUtil;
+import flixel.engine.util.WindowUtil;
+
+using StringTools;
 
 class EditorProject
 {
@@ -39,7 +42,7 @@ class EditorProject
 
 		if (!FileSystem.exists(path))
 		{
-			trace('PROJECT DOESN\'T EXIST: $filteredName');
+			WindowUtil.alert('PROJECT DOESN\'T EXIST: $filteredName');
 			return false;
 		}
 
@@ -61,12 +64,15 @@ class EditorProject
 
 		if (projectParser.errors?.length > 0)
 			for (error in projectParser.errors)
-				trace(error);
+				WindowUtil.alert('Project loading error: "$error"');
 
 		var project = projectParser.fromJson(data);
 
 		if (!VersionUtil.matches(project.api_version, API_VERSION_RULE))
+		{
+			WindowUtil.alert('Unmatching API Version "${project.api_version}" for project: "${project.name}"');
 			return false;
+		}
 
 		var apiversion:Version = Version.stringToVersion(project.api_version);
 
@@ -83,7 +89,7 @@ class EditorProject
 				defaultCase();
 
 			default:
-				trace('No case for major API Version: ${apiversion.major}');
+				WindowUtil.alert('No loading case for major API Version: ${apiversion.major}, using default');
 				defaultCase();
 		}
 
@@ -95,11 +101,18 @@ class EditorProject
 	public static function addProject(project:EditorProject)
 	{
 		var filteredName:String = project.name.toLowerCase();
+
+		if (filteredName.trim().length < 0 || filteredName.trim() == '')
+		{
+			WindowUtil.alert('Missing Project Name');
+			return;
+		}
+
 		var dir = AssetPaths.getProjectsPath(filteredName);
 
 		if (FileSystem.exists(dir))
 		{
-			trace('PROJECT ALREADY EXISTS: $filteredName');
+			WindowUtil.alert('PROJECT ALREADY EXISTS: $filteredName');
 			return;
 		}
 

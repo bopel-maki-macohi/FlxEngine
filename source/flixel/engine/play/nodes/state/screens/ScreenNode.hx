@@ -13,7 +13,7 @@ class ScreenNode<T> extends StateNode
 		this.parent = parent;
 	}
 
-	public function onOpen() {}
+	public function onOpened() {}
 
 	public function onClosed() {}
 

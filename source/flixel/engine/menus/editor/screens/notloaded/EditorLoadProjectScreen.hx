@@ -41,9 +41,9 @@ class EditorLoadProjectScreen extends EditorScreen
 		changeSelect(0);
 	}
 
-	override function onOpen()
+	override function onOpened()
 	{
-		super.onOpen();
+		super.onOpened();
 
 		selected = 0;
 		changeSelect(0);

@@ -59,7 +59,7 @@ class EditorNewProjectScreen extends EditorScreen
 
 	function onCreateClicked()
 	{
-		if (projectNameInput.text.trim().length < 0)
+		if (projectNameInput.text.trim().length < 0 || projectNameInput.text.trim() == '')
 		{
 			WindowUtil.alert('Missing Project Name');
 			return;
@@ -78,7 +78,7 @@ class EditorNewProjectScreen extends EditorScreen
 
 		parent.screen_loadProject.reloadProjects();
 
-		parent.project = generatedProject;
+		parent.project.loadProject(generatedProject.name);
 		parent.setCurrentScreen(parent.screen_project.id);
 	}
 

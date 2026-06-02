@@ -1,7 +1,7 @@
 package flixel.engine.play.nodes.state.screens;
 
-import flixel.engine.play.events.ui.ScreenChangeEvent;
 import flixel.engine.play.events.FlxEngineEvent;
+import flixel.engine.play.events.ui.ScreenChangeEvent;
 import flixel.group.FlxContainer.FlxTypedContainer;
 
 class StateScreenNode<T> extends StateNode
@@ -17,7 +17,7 @@ class StateScreenNode<T> extends StateNode
 			screen.active = screen.visible = screen.id.toLowerCase() == newScreen.toLowerCase();
 
 			if (screen.active)
-				screen.onOpen();
+				screen.onOpened();
 			else
 				screen.onClosed();
 		}
