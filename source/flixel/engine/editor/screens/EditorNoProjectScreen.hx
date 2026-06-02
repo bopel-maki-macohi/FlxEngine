@@ -7,7 +7,9 @@ import flixel.engine.screens.FlxEngineScreen;
 class EditorNoProjectScreen extends FlxEngineScreen
 {
 	var noProjectLoaded:FlxText;
+
 	var projectNewButton:FlxButton;
+	var projectLoadButton:FlxButton;
 
 	override public function new()
 	{
@@ -27,7 +29,16 @@ class EditorNoProjectScreen extends FlxEngineScreen
 		add(projectNewButton);
 		projectNewButton.screenCenter();
 		projectNewButton.y += projectNewButton.height;
+		projectNewButton.x -= projectNewButton.width;
+
+		projectLoadButton = new FlxButton(0, 0, 'Load Project', onLoadProject);
+		add(projectLoadButton);
+		projectLoadButton.screenCenter();
+		projectLoadButton.y += projectLoadButton.height;
+		projectLoadButton.x += projectLoadButton.width;
 	}
 
 	function onNewProject() {}
+
+	function onLoadProject() {}
 }
