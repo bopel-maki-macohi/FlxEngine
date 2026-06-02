@@ -35,6 +35,7 @@ class EditorState extends FlxEngineScreenState<EditorState>
 		leaveIcon = new EditorIcon('X', 8, 8);
 		add(leaveIcon);
 		leaveIcon.onClicked = onLeaveIconClicked;
+		leaveIcon.color = FlxColor.RED;
 
 		watermarkText = new FlxText(0, 0, FlxG.height, 'FlxEngine v${Constants.VERSION_FULL}', 16);
 		watermarkText.y = FlxG.height - watermarkText.height;
