@@ -42,7 +42,7 @@ class EditorProject
 
 		if (!FileSystem.exists(path))
 		{
-			WindowUtil.alert('PROJECT DOESN\'T EXIST: $filteredName');
+			WindowUtil.alert('Project doesn\'t exist: $filteredName');
 			return false;
 		}
 
@@ -112,14 +112,37 @@ class EditorProject
 
 		if (FileSystem.exists(dir))
 		{
-			WindowUtil.alert('PROJECT ALREADY EXISTS: $filteredName');
+			WindowUtil.alert('Project already exists: $filteredName');
 			return;
 		}
 
 		if (!FileSystem.exists(dir))
 			FileSystem.createDirectory(dir);
 
-		trace('Added Project: $filteredName');
+		if (updateProject(project))
+			trace('Added Project: $filteredName');
+	}
+
+	public static function updateProject(project:EditorProject)
+	{
+		var filteredName:String = project.name.toLowerCase();
+
+		if (filteredName.trim().length < 0 || filteredName.trim() == '')
+		{
+			WindowUtil.alert('Missing Project Name');
+			return false;
+		}
+
+		var dir = AssetPaths.getProjectsPath(filteredName);
+
+		if (!FileSystem.exists(dir))
+		{
+			WindowUtil.alert('Project doesn\'t exist: $filteredName');
+
+			return false;
+		}
+
 		File.saveContent(AssetPaths.json(AssetPaths.getProjectPath(filteredName, 'meta')), project.save());
+		return true;
 	}
 }
