@@ -58,4 +58,20 @@ class FlxEngineInputLabelText extends FlxInputText
 			_label.drawDebug();
 	}
 	#end
+
+	override function get_height():Float
+	{
+		if (_label != null)
+			return super.get_height() + _label.height + (_label.size * 2);
+
+		return super.get_height();
+	}
+
+	override function get_width():Float
+	{
+		if (_label != null && _label.width > super.get_width())
+			return _label.width;
+
+		return super.get_width();
+	}
 }
