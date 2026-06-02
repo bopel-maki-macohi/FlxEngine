@@ -19,7 +19,16 @@ class EditorIcon extends FlxEngineSprite
 	{
 		super.update(elapsed);
 
-		if (FlxG.mouse.overlaps(this) && FlxG.mouse.justPressed && onClicked != null)
-			onClicked(this);
+		if (FlxG.mouse.overlaps(this))
+		{
+			alpha = 1;
+
+			if (FlxG.mouse.justPressed && onClicked != null)
+				onClicked(this);
+		}
+		else
+		{
+			alpha = 0.75;
+		}
 	}
 }
