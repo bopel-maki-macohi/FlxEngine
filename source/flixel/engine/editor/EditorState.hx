@@ -11,7 +11,7 @@ class EditorState extends FlxEngineScreenState<EditorState>
 {
 	var editorCamera:FlxCamera;
 
-	var leaveIcon:InteractableSprite;
+	public var leaveIcon:InteractableSprite;
 
 	public var screen_noProject:EditorNoProjectScreen;
 	public var screen_newProject:EditorNewProjectScreen;
@@ -19,6 +19,8 @@ class EditorState extends FlxEngineScreenState<EditorState>
 
 	override function create()
 	{
+		leaveIcon = new InteractableSprite('X', 8, 8);
+		
 		addScreen(screen_noProject = new EditorNoProjectScreen(this));
 		addScreen(screen_newProject = new EditorNewProjectScreen(this));
 		addScreen(screen_loadProject = new EditorLoadProjectScreen(this));
@@ -32,7 +34,6 @@ class EditorState extends FlxEngineScreenState<EditorState>
 		editorCamera.bgColor = FlxColor.GRAY;
 		editorCamera.bgColor.brightness *= 0.25;
 
-		leaveIcon = new InteractableSprite('X', 8, 8);
 		add(leaveIcon);
 		leaveIcon.onClicked = onLeaveIconClicked;
 		leaveIcon.color = FlxColor.RED;
