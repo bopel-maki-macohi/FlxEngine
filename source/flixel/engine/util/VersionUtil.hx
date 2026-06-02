@@ -5,10 +5,11 @@ import thx.semver.VersionRule;
 
 class VersionUtil
 {
+	#if hl
+	public static function matches(version:String, rule:String)
+		return true;
+	#else
 	public static function matches(version:Version, rule:VersionRule)
-	{
-		#if hl return true; #end
-
 		return rule.isSatisfiedBy(version);
-	}
+	#end
 }

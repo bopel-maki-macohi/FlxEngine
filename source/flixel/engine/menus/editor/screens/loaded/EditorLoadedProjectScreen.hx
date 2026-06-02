@@ -17,6 +17,7 @@ class EditorLoadedProjectScreen extends EditorScreen
 
 		projectLabel = new TextNode(0, 0, 0, 'Project: ${parent.project.name}', 32);
 		add(projectLabel);
+		projectLabel.screenCenter();
 		projectLabel.y = parent.toolbar.bottom;
 	}
 

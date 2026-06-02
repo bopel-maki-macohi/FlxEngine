@@ -26,7 +26,6 @@ class EditorNewProjectScreen extends EditorScreen
 		label = new TextNode(0, parent.toolbar.bottom, FlxG.width, 'NEW PROJECT', 32);
 		add(label);
 		label.alignment = CENTER;
-		label.y += label.height;
 
 		projectNameInput = new InputLabelNode(0, 0, FlxG.width / 2, 'Project Name', 16);
 		add(projectNameInput);
