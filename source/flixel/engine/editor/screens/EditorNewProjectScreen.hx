@@ -14,6 +14,7 @@ class EditorNewProjectScreen extends EditorScreen
 	var label:FlxText;
 
 	var projectNameInput:FlxEngineInputLabelText;
+	var projectAuthorInput:FlxEngineInputLabelText;
 
 	var createButton:FlxEngineButton;
 
@@ -28,6 +29,12 @@ class EditorNewProjectScreen extends EditorScreen
 		projectNameInput = new FlxEngineInputLabelText(0, 0, FlxG.width / 2, 'Project Name', 16);
 		add(projectNameInput);
 		projectNameInput.screenCenter();
+		projectNameInput.y -= projectNameInput.height * 2;
+
+		projectAuthorInput = new FlxEngineInputLabelText(0, 0, FlxG.width / 2, 'Project Description', 16);
+		add(projectAuthorInput);
+		projectAuthorInput.screenCenter(X);
+		projectAuthorInput.y = projectNameInput.y + projectAuthorInput.height;
 
 		createButton = new FlxEngineButton(0, 0, 'Create Project', onCreateClicked);
 		add(createButton);
