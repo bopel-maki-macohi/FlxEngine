@@ -35,6 +35,8 @@ class EditorNoProjectScreen extends EditorScreen
 		projectLoadButton.screenCenter();
 		projectLoadButton.y += projectLoadButton.height;
 		projectLoadButton.x += projectLoadButton.width;
+
+		projectLoadButton.status = DISABLED;
 	}
 
 	function onNewProject()
