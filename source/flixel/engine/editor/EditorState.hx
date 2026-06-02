@@ -4,14 +4,14 @@ import flixel.engine.util.Constants;
 import flixel.engine.editor.screens.*;
 import flixel.engine.screens.FlxEngineScreenState;
 import flixel.text.FlxText;
-import flixel.engine.editor.ui.EditorIcon;
+import flixel.engine.graphics.InteractableSprite;
 import flixel.util.FlxColor;
 
 class EditorState extends FlxEngineScreenState<EditorState>
 {
 	var editorCamera:FlxCamera;
 
-	var leaveIcon:EditorIcon;
+	var leaveIcon:InteractableSprite;
 
 	public var screen_noProject:EditorNoProjectScreen;
 	public var screen_newProject:EditorNewProjectScreen;
@@ -32,7 +32,7 @@ class EditorState extends FlxEngineScreenState<EditorState>
 		editorCamera.bgColor = FlxColor.GRAY;
 		editorCamera.bgColor.brightness *= 0.25;
 
-		leaveIcon = new EditorIcon('X', 8, 8);
+		leaveIcon = new InteractableSprite('X', 8, 8);
 		add(leaveIcon);
 		leaveIcon.onClicked = onLeaveIconClicked;
 		leaveIcon.color = FlxColor.RED;
@@ -44,7 +44,7 @@ class EditorState extends FlxEngineScreenState<EditorState>
 		setCurrentScreen(screen_noProject.id);
 	}
 
-	function onLeaveIconClicked(icon:EditorIcon)
+	function onLeaveIconClicked(icon:InteractableSprite)
 	{
 		Sys.exit(0);
 	}

@@ -1,10 +1,8 @@
-package flixel.engine.editor.ui;
+package flixel.engine.graphics;
 
-import flixel.engine.graphics.FlxEngineSprite;
-
-class EditorIcon extends FlxEngineSprite
+class InteractableSprite extends FlxEngineSprite
 {
-	public var onClicked:EditorIcon->Void;
+	public var onClicked:InteractableSprite->Void;
 
 	public var icon:String;
 
