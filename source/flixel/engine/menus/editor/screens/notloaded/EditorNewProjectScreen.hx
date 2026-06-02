@@ -1,4 +1,4 @@
-package flixel.engine.menus.editor.screens;
+package flixel.engine.menus.editor.screens.notloaded;
 
 import sys.io.File;
 import flixel.engine.graphics.FlxEngineInputLabelText;
@@ -62,5 +62,16 @@ class EditorNewProjectScreen extends EditorScreen
 		generatedProject.description = projectDescriptionInput.text;
 
 		EditorProject.addProject(generatedProject);
+
+		parent.project = generatedProject;
+		parent.screen_loadProject.reloadProjects();
+	}
+
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+
+		if (FlxG.keys.justPressed.ESCAPE)
+			parent.setCurrentScreen(parent.screen_noProject.id);
 	}
 }

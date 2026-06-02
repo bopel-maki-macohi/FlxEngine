@@ -26,7 +26,7 @@ class FlxEngineInputLabelText extends FlxInputText
 	{
 		super(x, y, fieldWidth, '', size, textColor, backgroundColor, embeddedFont, manager);
 
-		_label = new FlxText(this.x, this.y - 24, fieldWidth, labelText, 16);
+		_label = new FlxText(0, 0, 0, labelText, 16);
 	}
 
 	override function update(elapsed:Float)

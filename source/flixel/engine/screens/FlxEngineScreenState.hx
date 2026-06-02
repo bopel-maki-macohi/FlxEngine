@@ -14,7 +14,14 @@ class FlxEngineScreenState<T> extends FlxEngineState
 	function set_currentScreen(newScreen:String):String
 	{
 		for (screen in screens)
+		{
 			screen.active = screen.visible = screen.id.toLowerCase() == newScreen.toLowerCase();
+
+			if (screen.active)
+				screen.onOpen();
+			else
+				screen.onClosed();
+		}
 
 		#if debug
 		FlxG.watch.addQuick('Current Screen', newScreen.toLowerCase());
@@ -49,6 +56,7 @@ class FlxEngineScreenState<T> extends FlxEngineState
 		if (screen.members.indexOf(screen) > 0)
 			return;
 
+		screen.onAdded();
 		screens.add(screen);
 	}
 
@@ -57,6 +65,7 @@ class FlxEngineScreenState<T> extends FlxEngineState
 		if (screen.members.indexOf(screen) < 0)
 			return;
 
+		screen.onRemoved();
 		screens.remove(screen);
 	}
 

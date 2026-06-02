@@ -12,4 +12,12 @@ class FlxEngineScreen<T> extends FlxState
 		this.id = id;
 		this.parent = parent;
 	}
+
+	public function onOpen() {}
+
+	public function onClosed() {}
+
+	public function onAdded() {}
+
+	public function onRemoved() {}
 }

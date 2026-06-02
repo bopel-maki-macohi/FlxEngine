@@ -1,5 +1,7 @@
 package flixel.engine.menus.editor;
 
+import flixel.engine.util.VersionUtil;
+import haxe.Json;
 import sys.io.File;
 import sys.FileSystem;
 import thx.semver.Version;
@@ -19,6 +21,9 @@ class EditorProject
 	@:default('0.1.0')
 	public var api_version:String;
 
+	@:jignored
+	public var loaded:Bool = false;
+
 	public function new()
 	{
 		this.api_version = Version.stringToVersion(Constants.VERSION).toString();
@@ -29,18 +34,40 @@ class EditorProject
 		return new JsonWriter<EditorProject>().write(this, '\t');
 	}
 
-	public function load(data:String)
+	public function loadProject(project:String)
+	{
+		var filteredName:String = project.toLowerCase();
+		var path = AssetPaths.json(AssetPaths.getProjectPath(filteredName, 'meta'));
+
+		if (!FileSystem.exists(path))
+		{
+			trace('PROJECT DOESN\'T EXIST: $filteredName');
+			return false;
+		}
+
+		if (loadData(File.getContent(path)))
+		{
+			trace('Loaded Project: $filteredName');
+			return true;
+		}
+		else
+		{
+			trace('Couldn\'t Load Project: $filteredName');
+			return false;
+		}
+	}
+
+	public function loadData(data:String)
 	{
 		var projectParser = new JsonParser<EditorProject>();
 
-		if (projectParser.errors.length > 0)
+		if (projectParser.errors?.length > 0)
 			for (error in projectParser.errors)
 				trace(error);
 
 		var project = projectParser.fromJson(data);
 
-		var versionRule:VersionRule = VersionRule.stringToVersionRule(API_VERSION_RULE);
-		if (!versionRule.isSatisfiedBy(project.api_version))
+		if (!VersionUtil.matches(project.api_version, API_VERSION_RULE))
 			return false;
 
 		var apiversion:Version = Version.stringToVersion(project.api_version);
@@ -64,7 +91,7 @@ class EditorProject
 
 		this.api_version = Version.stringToVersion(project.api_version).toString();
 
-		return true;
+		return loaded = true;
 	}
 
 	public static function addProject(project:EditorProject)

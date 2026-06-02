@@ -1,4 +1,4 @@
-package flixel.engine.menus.editor.screens;
+package flixel.engine.menus.editor.screens.notloaded;
 
 import flixel.engine.graphics.FlxEngineButton;
 import flixel.text.FlxText;
@@ -36,7 +36,9 @@ class EditorNoProjectScreen extends EditorScreen
 		projectLoadButton.y += projectLoadButton.height;
 		projectLoadButton.x += projectLoadButton.width;
 
-		projectLoadButton.status = DISABLED;
+		parent.screen_loadProject.reloadProjects();
+		if (parent.screen_loadProject.projects.length == 0)
+			projectLoadButton.status = DISABLED;
 	}
 
 	function onNewProject()
