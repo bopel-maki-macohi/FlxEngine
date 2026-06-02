@@ -54,7 +54,7 @@ class EditorState extends StateScreenNode<EditorState>
 		editorCamera.bgColor = FlxColor.GRAY;
 		editorCamera.bgColor.brightness *= 0.25;
 
-		watermarkText.y = toolbar.bottom / 2;
+		watermarkText.y = watermarkText.height / 2;
 		toolbar.add(cast(watermarkText, SpriteNode));
 		watermarkText.scrollFactor.set();
 
