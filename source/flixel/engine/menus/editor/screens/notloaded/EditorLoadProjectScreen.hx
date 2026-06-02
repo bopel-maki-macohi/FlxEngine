@@ -120,7 +120,7 @@ class EditorLoadProjectScreen extends EditorScreen
 		{
 			ILS.label.color = (selected == ILS.ID) ? FlxColor.YELLOW : FlxColor.WHITE;
 
-			ILS.y = FlxMath.lerp(ILS.y, ILS.height * ILS.ID, .5);
+			ILS.y = FlxMath.lerp(ILS.y, 96 * ILS.ID, .5);
 
 			if (selected == ILS.ID)
 				camFollow.y = ILS.y;
