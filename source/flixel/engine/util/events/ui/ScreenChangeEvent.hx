@@ -1,4 +1,4 @@
-package flixel.engine.events.ui;
+package flixel.engine.util.events.ui;
 
 typedef ScreenChangeEventData =
 {

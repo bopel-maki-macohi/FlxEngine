@@ -1,4 +1,4 @@
-package flixel.engine.events;
+package flixel.engine.util.events;
 
 class FlxEngineEvent<T>
 {

@@ -1,8 +1,8 @@
 package flixel.engine.screens;
 
-import flixel.engine.events.FlxEngineEventSignal;
-import flixel.engine.events.ui.ScreenChangeEvent;
-import flixel.engine.events.FlxEngineEvent;
+import flixel.engine.util.events.FlxEngineEventSignal;
+import flixel.engine.util.events.ui.ScreenChangeEvent;
+import flixel.engine.util.events.FlxEngineEvent;
 import flixel.group.FlxContainer.FlxTypedContainer;
 
 class FlxEngineScreenState<T> extends FlxEngineState
