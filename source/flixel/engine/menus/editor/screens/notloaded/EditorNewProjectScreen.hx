@@ -63,8 +63,10 @@ class EditorNewProjectScreen extends EditorScreen
 
 		EditorProject.addProject(generatedProject);
 
-		parent.project = generatedProject;
 		parent.screen_loadProject.reloadProjects();
+		
+		parent.project = generatedProject;
+		parent.setCurrentScreen(parent.screen_project.id);
 	}
 
 	override function update(elapsed:Float)
