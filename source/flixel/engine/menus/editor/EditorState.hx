@@ -2,12 +2,8 @@ package flixel.engine.menus.editor;
 
 import flixel.engine.menus.editor.screens.loaded.*;
 import flixel.engine.menus.editor.screens.notloaded.*;
-import flixel.engine.play.nodes.button.ButtonIconSpriteNode;
 import flixel.engine.play.nodes.button.ButtonSpriteNode;
-import flixel.engine.play.nodes.sprite.SpriteNode;
 import flixel.engine.play.nodes.state.screens.StateScreenNode;
-import flixel.engine.play.nodes.text.TextNode;
-import flixel.engine.util.Constants;
 import flixel.util.FlxColor;
 
 class EditorState extends StateScreenNode<EditorState>
@@ -26,8 +22,6 @@ class EditorState extends StateScreenNode<EditorState>
 
 	override function create()
 	{
-		watermarkText = new TextNode(0, 24, 'FlxEngine v${Constants.VERSION_FULL}', 16);
-		
 		// @:privateAccess {
 		// 	watermarkText._regen = true;
 		// 	watermarkText.regenGraphic();
@@ -53,10 +47,6 @@ class EditorState extends StateScreenNode<EditorState>
 
 		editorCamera.bgColor = FlxColor.GRAY;
 		editorCamera.bgColor.brightness *= 0.25;
-
-		watermarkText.y = watermarkText.height / 2;
-		toolbar.add(cast(watermarkText, SpriteNode));
-		watermarkText.scrollFactor.set();
 
 		add(toolbar);
 		toolbar.scrollFactor.set();

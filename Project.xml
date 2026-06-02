@@ -33,10 +33,11 @@
 
 	<!-- 
 		Web - Doesn't support Sys
-		Hashlink - Has error with thx.semver VersionRule
 		Mobile - I don't want to make UI for mobile
 	-->
-	<error value="Platform unsupported" if="web || hl || mobile" />
+	<error value="Platform unsupported" if="web || mobile" />
+
+	<log value="Version Rule checks are disabled" if="hl" />
 
 	<define name="lime_disable_assets_version" />
 
