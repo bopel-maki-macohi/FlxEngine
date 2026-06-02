@@ -1,5 +1,6 @@
 package flixel.engine.editor.screens;
 
+import flixel.engine.graphics.FlxEngineButton;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
 import flixel.text.FlxInputText;
@@ -16,6 +17,8 @@ class EditorNewProjectScreen extends EditorScreen
 	var projectNameInput:FlxInputText;
 	var projectNameLabel:FlxText;
 
+	var createButton:FlxEngineButton;
+
 	override function create()
 	{
 		super.create();
@@ -26,10 +29,16 @@ class EditorNewProjectScreen extends EditorScreen
 
 		projectNameInput = new FlxInputText(0, 0, FlxG.width / 2, '', 16);
 		add(projectNameInput);
-		projectNameInput.screenCenter(X);
-		projectNameInput.y = label.y + (projectNameInput.height * 4);
+		projectNameInput.screenCenter();
 
 		projectNameLabel = new FlxText(projectNameInput.x, projectNameInput.y - 24, 0, 'Project Name', 16);
 		add(projectNameLabel);
+
+		createButton = new FlxEngineButton(0, 0, 'Create Project', onCreateClicked);
+		add(createButton);
+		createButton.screenCenter(X);
+		createButton.y = FlxG.height - createButton.height * 2;
 	}
+
+	function onCreateClicked() {}
 }
