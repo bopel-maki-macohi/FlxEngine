@@ -82,6 +82,6 @@ class EditorProject
 			FileSystem.createDirectory(dir);
 
 		trace('Added Project: $filteredName');
-		File.saveContent(AssetPaths.json5(AssetPaths.getProjectPath(filteredName, 'meta')), project.save());
+		File.saveContent(AssetPaths.json(AssetPaths.getProjectPath(filteredName, 'meta')), project.save());
 	}
 }

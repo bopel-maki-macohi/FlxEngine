@@ -14,7 +14,6 @@
 	<haxelib name="flixel" />
 	
 	<haxelib name="json2object" />
-	<haxelib name="json5hx" />
 
 	<haxelib name="thx.semver" />
 
