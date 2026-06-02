@@ -1,4 +1,4 @@
-package flixel.engine.assets;
+package flixel.engine;
 
 class AssetPaths
 {
