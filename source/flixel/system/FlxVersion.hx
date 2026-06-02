@@ -6,6 +6,8 @@ package flixel.system;
  */
 class FlxVersion
 {
+    public static final sha:String = '';
+
 	public var major(default, null):Int;
 	public var minor(default, null):Int;
 	public var patch(default, null):Int;
