@@ -1,6 +1,6 @@
 package flixel.engine.editor.screens;
 
-import flixel.engine.graphics.FlxEngineButton;
+import flixel.text.FlxInputText;
 
 class EditorNewProjectScreen extends EditorScreen
 {
@@ -9,14 +9,14 @@ class EditorNewProjectScreen extends EditorScreen
 		super('editor.newProject', parent);
 	}
 
-	var back:FlxEngineButton;
+	var projectName:FlxInputText;
 
 	override function create()
 	{
 		super.create();
 
-		back = new FlxEngineButton(0, 0, 'Back', () -> parent.setCurrentScreen(parent.screen_noProject.id));
-		add(back);
-		back.screenCenter();
+		projectName = new FlxInputText(0, 0, FlxG.width / 2, 'Project Name', 16);
+		add(projectName);
+		projectName.screenCenter();
 	}
 }
