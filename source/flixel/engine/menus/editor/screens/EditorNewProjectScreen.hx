@@ -1,4 +1,4 @@
-package flixel.engine.editor.screens;
+package flixel.engine.menus.editor.screens;
 
 import flixel.engine.graphics.FlxEngineInputLabelText;
 import flixel.engine.graphics.FlxEngineButton;

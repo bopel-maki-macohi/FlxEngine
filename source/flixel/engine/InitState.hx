@@ -1,6 +1,6 @@
 package flixel.engine;
 
-import flixel.engine.editor.EditorState;
+import flixel.engine.menus.editor.EditorState;
 
 class InitState extends FlxState
 {

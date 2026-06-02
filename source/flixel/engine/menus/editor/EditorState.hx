@@ -1,7 +1,7 @@
-package flixel.engine.editor;
+package flixel.engine.menus.editor;
 
 import flixel.engine.util.Constants;
-import flixel.engine.editor.screens.*;
+import flixel.engine.menus.editor.screens.*;
 import flixel.engine.screens.FlxEngineScreenState;
 import flixel.text.FlxText;
 import flixel.engine.graphics.InteractableSprite;
