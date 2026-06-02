@@ -13,6 +13,10 @@ class FlxEngineScreenState<T> extends FlxEngineState
 		for (screen in screens)
 			screen.active = screen.visible = screen.id.toLowerCase() == newScreen.toLowerCase();
 
+		#if debug
+		FlxG.watch.addQuick('Current Screen', newScreen.toLowerCase());
+		#end
+		
 		return newScreen.toLowerCase();
 	}
 
@@ -55,15 +59,6 @@ class FlxEngineScreenState<T> extends FlxEngineState
 
 		for (screen in screens)
 			screen.create();
-	}
-
-	override function update(elapsed:Float)
-	{
-		super.update(elapsed);
-
-		#if debug
-		FlxG.watch.addQuick('Current Screen', currentScreen);
-		#end
 	}
 
 	override function destroy()
