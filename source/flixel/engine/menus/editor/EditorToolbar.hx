@@ -33,7 +33,7 @@ class EditorToolbar extends ToolbarNode
 		watermarkText.y = watermarkText.height / 2;
 		watermarkText.scrollFactor.set();
 
-		leaveIcon = new ButtonIconSpriteNode('X', 8, 8);
+		leaveIcon = new ButtonIconSpriteNode('toolbar/X', 8, 8);
 		add(leaveIcon);
 		leaveIcon.onClicked = onLeaveIconClicked;
 		leaveIcon.color = FlxColor.RED;
