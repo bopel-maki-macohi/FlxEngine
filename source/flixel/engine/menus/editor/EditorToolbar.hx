@@ -1,5 +1,6 @@
 package flixel.engine.menus.editor;
 
+import haxe.io.Path;
 import flixel.engine.play.PlayState;
 import flixel.engine.play.nodes.button.ButtonIconSpriteNode;
 import flixel.engine.play.nodes.button.ButtonSpriteNode;
@@ -7,6 +8,8 @@ import flixel.engine.play.nodes.sprite.ToolbarNode;
 import flixel.engine.play.nodes.text.TextNode;
 import flixel.engine.util.Constants;
 import flixel.util.FlxColor;
+
+using StringTools;
 
 class EditorToolbar extends ToolbarNode
 {
@@ -48,11 +51,19 @@ class EditorToolbar extends ToolbarNode
 
 	function onLeaveIconClicked(icon:ButtonSpriteNode)
 	{
-		if (cast(FlxG.state, EditorState) != null)
-			Sys.exit(0);
+		var state:String;
 
-		if (cast(FlxG.state, PlayState) != null)
-			FlxG.switchState(() -> new EditorState());
+		trace(state = Type.getClassName(Type.getClass(FlxG.state)).replace('.', '/'));
+		trace(Path.withoutDirectory(state));
+
+		// weird workaround but hey, functional is functional
+		switch (Path.withoutDirectory(state))
+		{
+			case 'EditorState':
+				Sys.exit(0);
+			case 'PlayState':
+				FlxG.switchState(() -> new EditorState());
+		}
 	}
 
 	function onGithubIconClicked(icon:ButtonSpriteNode)
