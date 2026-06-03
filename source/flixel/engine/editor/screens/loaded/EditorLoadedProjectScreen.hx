@@ -85,12 +85,14 @@ class EditorLoadedProjectScreen extends EditorScreen
 
 	function onCloseProject()
 	{
+		EditorProject.updateProject(parent.project);
 		parent.project = new EditorProject();
 		parent.setCurrentScreen(parent.screen_noProject.id);
 	}
 
 	function onPlayProject()
 	{
+		EditorProject.updateProject(parent.project);
 		FlxG.switchState(() -> new PlayState(parent.project));
 	}
 
