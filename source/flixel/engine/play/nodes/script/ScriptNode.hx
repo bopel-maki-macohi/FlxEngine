@@ -33,7 +33,7 @@ class ScriptNode extends Iris
 
 		var classVars:Array<Dynamic> = [];
 
-		for (value in Constants.NODE_LIST)
+		for (value in Constants.SCRIPT_IMPORTS)
 			classVars.push(value);
 
 		for (cls in classVars)

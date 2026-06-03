@@ -1,5 +1,10 @@
 package flixel.engine.util;
 
+import flixel.engine.editor.EditorProject;
+import flixel.engine.editor.EditorScreen;
+import flixel.engine.editor.EditorState;
+import flixel.engine.editor.EditorToolbar;
+import flixel.engine.play.PlayState;
 import flixel.engine.play.nodes.button.*;
 import flixel.engine.play.nodes.event.*;
 import flixel.engine.play.nodes.event.ui.*;
@@ -26,7 +31,8 @@ class Constants
 
 	public static final DEFAULT_SPRITE_SCALE:Float = 2;
 
-	public static var NODE_LIST:Array<Dynamic> = [
+	public static var SCRIPT_IMPORTS:Array<Dynamic> = [
+		// Nodes
 		ButtonIconSpriteNode,
 		ButtonLabelSpriteGroupNode,
 		ButtonLabelSpriteNode,
@@ -47,5 +53,17 @@ class Constants
 		InputLabelNode,
 		InputTextNode,
 		TextNode,
+		//
+		// Non-Nodes
+		AssetPaths,
+		Constants,
+		FileUtil,
+		VersionUtil,
+		WindowUtil,
+		EditorState,
+		EditorToolbar,
+		EditorScreen,
+		EditorProject,
+		PlayState,
 	];
 }
