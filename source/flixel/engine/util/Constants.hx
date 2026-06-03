@@ -1,17 +1,6 @@
 package flixel.engine.util;
 
 import haxe.io.Path;
-import flixel.engine.editor.*;
-import flixel.engine.play.*;
-import flixel.engine.play.nodes.button.*;
-import flixel.engine.play.nodes.event.*;
-import flixel.engine.play.nodes.event.ui.*;
-import flixel.engine.play.nodes.script.*;
-import flixel.engine.play.nodes.script.alias.*;
-import flixel.engine.play.nodes.sprite.*;
-import flixel.engine.play.nodes.state.*;
-import flixel.engine.play.nodes.state.screens.*;
-import flixel.engine.play.nodes.text.*;
 import flixel.engine.util.macros.Git;
 
 using StringTools;
@@ -32,43 +21,7 @@ class Constants
 
 	public static final DEFAULT_SPRITE_SCALE:Float = 2;
 
-	public static var SCRIPT_IMPORTS:Array<Dynamic> = [
-		// Nodes
-		// ButtonIconSpriteNode,
-		// ButtonLabelSpriteGroupNode,
-		// ButtonLabelSpriteNode,
-		// ButtonNode,
-		// ButtonSpriteNode,
-		// ScreenChangeEventNode,
-		// EventNode,
-		// EventSignalNode,
-		// ScriptGroupNode,
-		// ScriptNode,
-		// PopupSpriteNode,
-		// SpriteGroupNode,
-		// SpriteNode,
-		// ToolbarNode,
-		// StateNode,
-		// ScreenNode,
-		// StateScreenNode,
-		// InputLabelNode,
-		// InputTextNode,
-		// TextNode,
-		//
-		// Non-Nodes
-		// AssetPaths,
-		// Constants,
-		// FileUtil,
-		// VersionUtil,
-		// WindowUtil,
-		// EditorState,
-		// EditorToolbar,
-		// EditorScreen,
-		// EditorProject,
-		// PlayState,
-		//
-		// Aliases
-	];
+	public static var SCRIPT_IMPORTS:Array<Dynamic> = [];
 
 	public static var CURRENT_STATE(get, never):String;
 
