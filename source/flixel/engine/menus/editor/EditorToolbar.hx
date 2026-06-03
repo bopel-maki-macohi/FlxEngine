@@ -10,6 +10,7 @@ import flixel.util.FlxColor;
 class EditorToolbar extends ToolbarNode
 {
 	public var leaveIcon:ButtonIconSpriteNode;
+	public var githubIcon:ButtonIconSpriteNode;
 
 	public var watermarkText:TextNode;
 
@@ -28,18 +29,31 @@ class EditorToolbar extends ToolbarNode
 		watermarkText.y = watermarkText.height / 2;
 		watermarkText.scrollFactor.set();
 
+		githubIcon = new ButtonIconSpriteNode('toolbar/github', 8, 8);
+		githubIcon.onClicked = onGithubIconClicked;
+		githubIcon.scrollFactor.set();
+
+
 		leaveIcon = new ButtonIconSpriteNode('toolbar/X', 8, 8);
-		add(leaveIcon);
 		leaveIcon.onClicked = onLeaveIconClicked;
 		leaveIcon.color = FlxColor.RED;
 		leaveIcon.scrollFactor.set();
 
-		leaveIcon.x += watermarkText.x + watermarkText.width + 8;
+		githubIcon.x += watermarkText.x + watermarkText.width + 8;
+		leaveIcon.x += githubIcon.x + githubIcon.width + 8;
+
+		add(githubIcon);
+		add(leaveIcon);
 	}
 
 	function onLeaveIconClicked(icon:ButtonSpriteNode)
 	{
 		Sys.exit(0);
+	}
+
+	function onGithubIconClicked(icon:ButtonSpriteNode)
+	{
+		FlxG.openURL('https://github.com/bopel-maki-macohi/FlxEngine');
 	}
 
 	override function update(elapsed:Float)
