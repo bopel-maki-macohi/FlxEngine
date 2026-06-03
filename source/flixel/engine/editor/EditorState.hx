@@ -9,6 +9,7 @@ import flixel.util.FlxColor;
 class EditorState extends StateScreenNode<EditorState>
 {
 	public var editorCamera:FlxCamera;
+	public var toolbarCamera:FlxCamera;
 
 	public var toolbar:EditorToolbar;
 
@@ -37,6 +38,10 @@ class EditorState extends StateScreenNode<EditorState>
 
 		super.create();
 
+		toolbarCamera = new FlxCamera();
+		toolbarCamera.bgColor.alpha = 0;
+		FlxG.cameras.add(toolbarCamera, false);
+
 		trace('Hello World!');
 
 		editorCamera.bgColor = FlxColor.GRAY;
@@ -44,6 +49,7 @@ class EditorState extends StateScreenNode<EditorState>
 
 		add(toolbar);
 		toolbar.scrollFactor.set();
+		toolbar.cameras = [toolbarCamera];
 
 		if (project.name == null)
 			setCurrentScreen(screen_noProject.id);
