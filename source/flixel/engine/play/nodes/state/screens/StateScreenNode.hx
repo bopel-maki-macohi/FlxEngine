@@ -82,6 +82,9 @@ class StateScreenNode<T> extends StateNode
 	{
 		super.destroy();
 
+		for (screen in screens)
+			screen.destroy();
+
 		#if debug
 		FlxG.watch.removeQuick('Current Screen');
 		#end

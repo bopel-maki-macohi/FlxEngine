@@ -26,13 +26,14 @@ class EditorState extends StateScreenNode<EditorState>
 		toolbar.y -= toolbar.height;
 
 		editorCamera = new FlxCamera();
-		FlxG.cameras.add(editorCamera, true);
 
 		addScreen(screen_loadProject = new EditorLoadProjectScreen(this));
 		addScreen(screen_newProject = new EditorNewProjectScreen(this));
 		addScreen(screen_noProject = new EditorNoProjectScreen(this));
 
 		addScreen(screen_project = new EditorLoadedProjectScreen(this));
+
+		FlxG.cameras.add(editorCamera, true);
 
 		super.create();
 
@@ -53,7 +54,14 @@ class EditorState extends StateScreenNode<EditorState>
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		
+
 		toolbar.y = FlxMath.lerp(toolbar.y, ((FlxG.mouse.y < toolbar.height) ? 0 : -toolbar.height), 0.04);
+	}
+
+	override function destroy()
+	{
+		super.destroy();
+
+		FlxG.cameras.remove(editorCamera);
 	}
 }
