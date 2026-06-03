@@ -2,8 +2,8 @@ package flixel.engine.menus.editor;
 
 import flixel.engine.menus.editor.screens.loaded.*;
 import flixel.engine.menus.editor.screens.notloaded.*;
-import flixel.engine.play.nodes.button.ButtonSpriteNode;
 import flixel.engine.play.nodes.state.screens.StateScreenNode;
+import flixel.math.FlxMath;
 import flixel.util.FlxColor;
 
 class EditorState extends StateScreenNode<EditorState>
@@ -49,8 +49,10 @@ class EditorState extends StateScreenNode<EditorState>
 			setCurrentScreen(screen_project.id);
 	}
 
-	function onLeaveIconClicked(icon:ButtonSpriteNode)
+	override function update(elapsed:Float)
 	{
-		Sys.exit(0);
+		super.update(elapsed);
+		
+		toolbar.y = FlxMath.lerp(toolbar.y, ((FlxG.mouse.y < toolbar.height) ? 0 : -toolbar.height), 0.04);
 	}
 }
