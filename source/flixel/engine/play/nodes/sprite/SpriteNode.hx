@@ -18,4 +18,14 @@ class SpriteNode extends FlxSprite
 		this.scale.set(scale, scale);
 		updateHitbox();
 	}
+
+	public var targetAlpha:Null<Float> = null;
+
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+
+		if (targetAlpha != null)
+			alpha = targetAlpha;
+	}
 }

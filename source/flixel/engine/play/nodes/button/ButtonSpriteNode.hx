@@ -7,12 +7,8 @@ class ButtonSpriteNode extends SpriteNode
 {
 	public var onClicked:ButtonSpriteNode->Void;
 
-	public var targetAlpha:Null<Float> = null;
-
 	override function update(elapsed:Float)
 	{
-		super.update(elapsed);
-
 		if (onClicked != null)
 		{
 			if (FlxG.mouse.overlaps(this))
@@ -26,7 +22,6 @@ class ButtonSpriteNode extends SpriteNode
 				targetAlpha = 0.5;
 		}
 
-		if (targetAlpha != null)
-			alpha = targetAlpha;
+		super.update(elapsed);
 	}
 }
