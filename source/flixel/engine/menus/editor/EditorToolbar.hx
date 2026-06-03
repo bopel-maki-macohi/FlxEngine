@@ -1,5 +1,6 @@
 package flixel.engine.menus.editor;
 
+import flixel.engine.play.PlayState;
 import flixel.engine.play.nodes.button.ButtonIconSpriteNode;
 import flixel.engine.play.nodes.button.ButtonSpriteNode;
 import flixel.engine.play.nodes.sprite.ToolbarNode;
@@ -33,14 +34,13 @@ class EditorToolbar extends ToolbarNode
 		githubIcon.onClicked = onGithubIconClicked;
 		githubIcon.scrollFactor.set();
 
-
 		leaveIcon = new ButtonIconSpriteNode('toolbar/X', 8, 8);
 		leaveIcon.onClicked = onLeaveIconClicked;
 		leaveIcon.color = FlxColor.RED;
 		leaveIcon.scrollFactor.set();
 
-		githubIcon.x += watermarkText.x + watermarkText.width + 8;
-		leaveIcon.x += githubIcon.x + githubIcon.width + 8;
+		leaveIcon.x = _bg.width - (leaveIcon.width + 16);
+		githubIcon.x = leaveIcon.x - githubIcon.width - 16;
 
 		add(githubIcon);
 		add(leaveIcon);
@@ -48,7 +48,11 @@ class EditorToolbar extends ToolbarNode
 
 	function onLeaveIconClicked(icon:ButtonSpriteNode)
 	{
-		Sys.exit(0);
+		if (cast(FlxG.state, EditorState) != null)
+			Sys.exit(0);
+
+		if (cast(FlxG.state, PlayState) != null)
+			FlxG.switchState(() -> new EditorState());
 	}
 
 	function onGithubIconClicked(icon:ButtonSpriteNode)
