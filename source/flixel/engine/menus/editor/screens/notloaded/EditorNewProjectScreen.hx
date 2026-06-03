@@ -26,7 +26,7 @@ class EditorNewProjectScreen extends EditorScreen
 	{
 		super.create();
 
-		label = new TextNode(0, parent.toolbar.bottom, FlxG.width, 'NEW PROJECT', 32);
+		label = new TextNode(0, 0, FlxG.width, 'NEW PROJECT', 32);
 		add(label);
 		label.alignment = CENTER;
 

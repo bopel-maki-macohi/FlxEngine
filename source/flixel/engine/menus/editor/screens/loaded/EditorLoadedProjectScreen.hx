@@ -100,7 +100,7 @@ class EditorLoadedProjectScreen extends EditorScreen
 
 		projectLabel.text = 'Project: ${parent.project.name}';
 		projectLabel.screenCenter();
-		projectLabel.y = parent.toolbar.bottom;
+		projectLabel.y = 0;
 
 		projectAuthorInput.text = parent.project.author;
 		projectDescriptionInput.text = parent.project.description;
