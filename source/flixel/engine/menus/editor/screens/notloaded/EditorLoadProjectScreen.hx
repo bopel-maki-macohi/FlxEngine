@@ -1,6 +1,7 @@
 package flixel.engine.menus.editor.screens.notloaded;
 
 import sys.FileSystem;
+import flixel.engine.play.nodes.button.ButtonLabelSpriteGroupNode;
 import flixel.engine.play.nodes.button.ButtonLabelSpriteNode;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
