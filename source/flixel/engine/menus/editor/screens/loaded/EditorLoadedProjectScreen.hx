@@ -67,7 +67,7 @@ class EditorLoadedProjectScreen extends EditorScreen
 		projectDescriptionInput.screenCenter();
 		projectDescriptionInput.y = projectAuthorInput.y + projectAuthorInput.height;
 
-		autosaveTimer.start(3, t ->
+		autosaveTimer.start(30, t ->
 		{
 			trace('Autosaved');
 			EditorProject.updateProject(parent.project);
