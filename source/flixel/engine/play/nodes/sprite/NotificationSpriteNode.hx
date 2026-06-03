@@ -18,17 +18,20 @@ class NotificationSpriteNode extends SpriteNode
 		text = new TextNode(0, 0, 0, notification, 16);
 		this.icon = new ButtonIconSpriteNode(icon);
 
-		bg.makeGraphic(Math.floor(text.width * 1.1 + this.icon.width * 1.1), Math.floor(text.height * 1.1), FlxColor.WHITE);
+		bg.makeGraphic(Math.floor(text.width * 2 + this.icon.width * 2), Math.floor(text.height * 2), FlxColor.GRAY);
 	}
 
 	override function update(elapsed:Float)
 	{
 		bg.setPosition(x, y);
 
-		icon.x = bg.x + icon.width / 10;
+        width = bg.width;
+        height = bg.height;
+
+		icon.x = bg.x + icon.width / 2;
 		icon.y = bg.y + icon.height / 2;
 
-		text.x = icon.x + icon.width + (text.width / 10);
+		text.x = icon.x + icon.width + (text.width / 2);
 		text.y = bg.y + text.height / 2;
 	}
 
