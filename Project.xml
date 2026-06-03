@@ -39,7 +39,7 @@
 
 	<log value="VersionRule checks are disabled on this platform." if="hl" />
 	<log value="Beware of Invalid Function null errors." if="hl" />
-	<log value="Beware of Null Function Pointer errors." if="windows" />
+	<log value="Beware of Null Function Pointer errors." if="windows" unless="hl" />
 
 	<define name="lime_disable_assets_version" />
 	

@@ -41,11 +41,13 @@ class PlayState extends StateNode
 		super.create();
 
 		scripts = new ScriptGroupNode();
+
 		scripts.set('game', this);
 		scripts.set('project', project);
 
 		scripts.add(new ScriptNode(AssetPaths.script(AssetPaths.getProjectPath(project?.name, project?.main ?? 'Main'))));
 
+		add(toolbar);
 		toolbar.y -= toolbar.height;
 
 		scripts.call('onCreate', []);
@@ -53,21 +55,15 @@ class PlayState extends StateNode
 
 	override function update(elapsed:Float)
 	{
+		members.sort((a, b) ->
+		{
+			return (a == toolbar) ? 1 : -1;
+		});
+
 		super.update(elapsed);
 
 		toolbar.y = FlxMath.lerp(toolbar.y, ((FlxG.mouse.y < toolbar.height) ? 0 : -toolbar.height), 0.04);
 
 		scripts.call('onUpdate', [elapsed]);
-	}
-
-	override function draw()
-	{
-		super.draw();
-
-		if (toolbar != null && toolbar.visible)
-		{
-			toolbar.cameras = _cameras;
-			toolbar.draw();
-		}
 	}
 }
