@@ -46,6 +46,8 @@
 	<define name="hscriptPos" />
 	<define name="IRIS_DEBUG" if="debug" />
 
+	<haxeflag name="--macro include('flixel.engine', true) "/>
+
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />
