@@ -1,8 +1,12 @@
 package flixel.engine.menus.editor.screens.loaded;
 
+import flixel.engine.play.nodes.button.ButtonIconSpriteNode;
+import flixel.engine.play.nodes.sprite.PopupSpriteNode;
 import flixel.engine.play.nodes.text.InputLabelNode;
 import flixel.engine.play.nodes.text.TextNode;
 import flixel.text.FlxInputText.FlxInputTextChange;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 
 class EditorLoadedProjectScreen extends EditorScreen
@@ -63,10 +67,15 @@ class EditorLoadedProjectScreen extends EditorScreen
 		projectDescriptionInput.screenCenter();
 		projectDescriptionInput.y = projectAuthorInput.y + projectAuthorInput.height;
 
-		autosaveTimer.start(30, t ->
+		autosaveTimer.start(3, t ->
 		{
 			trace('Autosaved');
 			EditorProject.updateProject(parent.project);
+
+			add(PopupSpriteNode.create('download', popup ->
+			{
+				remove(popup);
+			}));
 		}, 0);
 	}
 
