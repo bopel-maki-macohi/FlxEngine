@@ -75,4 +75,14 @@ class Constants
 
 		return Path.withoutDirectory(state);
 	}
+
+	public static function convertToScriptVariable(cls:Dynamic)
+	{
+		var variable:Dynamic = {};
+
+		for (field in Reflect.fields(cls))
+			Reflect.setField(variable, field, Reflect.field(cls, field));
+
+		return variable;
+	}
 }

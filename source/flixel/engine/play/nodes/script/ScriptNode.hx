@@ -43,7 +43,7 @@ class ScriptNode extends Iris
 				var clsStr = '$cls';
 				var clsName = clsStr.substr(clsStr.indexOf('$') + 1);
 
-				set(Path.withoutDirectory(clsName), cls);
+				set(Path.withoutDirectory(clsName), cls, false);
 			}
 			catch (e)
 			{

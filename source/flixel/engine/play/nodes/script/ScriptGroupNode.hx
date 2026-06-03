@@ -4,6 +4,8 @@ class ScriptGroupNode
 {
 	public var nodes:Array<ScriptNode> = [];
 
+	public var variables:Map<String, Dynamic> = [];
+
 	public function new() {}
 
 	public function add(node:ScriptNode)
@@ -12,6 +14,9 @@ class ScriptGroupNode
 			return;
 		if (nodes.indexOf(node) > -1)
 			return;
+
+		for (key => value in variables)
+			node.set(key, value, getAllowOverride(key));
 
 		node.call('onAddedToGroup');
 		nodes.push(node);
@@ -34,8 +39,11 @@ class ScriptGroupNode
 
 	public function set(variable:String, value:Dynamic)
 	{
+		if (getAllowOverride(variable) || !variables.exists(variable))
+			variables.set(variable, value);
+
 		for (node in nodes)
-			node.set(variable, value, getAllowOverride());
+			node.set(variable, value, getAllowOverride(variable));
 	}
 
 	public function get(variable:String)
@@ -47,7 +55,7 @@ class ScriptGroupNode
 		return null;
 	}
 
-	public dynamic function getAllowOverride():Bool
+	public dynamic function getAllowOverride(variable:String):Bool
 	{
 		return true;
 	}

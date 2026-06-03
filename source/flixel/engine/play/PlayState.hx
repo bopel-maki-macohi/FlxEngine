@@ -5,6 +5,7 @@ import flixel.engine.editor.EditorToolbar;
 import flixel.engine.play.nodes.script.ScriptGroupNode;
 import flixel.engine.play.nodes.script.ScriptNode;
 import flixel.engine.play.nodes.state.StateNode;
+import flixel.engine.util.Constants;
 import flixel.math.FlxMath;
 
 class PlayState extends StateNode
@@ -15,7 +16,11 @@ class PlayState extends StateNode
 	{
 		super.destroy();
 
-		project = null;
+		for (node in scripts.nodes)
+		{
+			scripts.nodes.remove(node);
+			node.destroy();
+		}
 	}
 
 	var toolbar:EditorToolbar;
@@ -36,13 +41,13 @@ class PlayState extends StateNode
 		super.create();
 
 		scripts = new ScriptGroupNode();
-		scripts.add(new ScriptNode(AssetPaths.script(AssetPaths.getProjectPath(project.name, project?.main ?? 'Main'))));
+		scripts.set('game', this);
+		scripts.set('project', project);
+
+		scripts.add(new ScriptNode(AssetPaths.script(AssetPaths.getProjectPath(project?.name, project?.main ?? 'Main'))));
 
 		add(toolbar);
 		toolbar.y -= toolbar.height;
-
-		scripts.set('game', this);
-		scripts.set('project', project);
 
 		scripts.call('onCreate', []);
 	}

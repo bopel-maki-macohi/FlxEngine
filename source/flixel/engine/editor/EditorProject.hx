@@ -158,4 +158,9 @@ class EditorProject
 		trace('Updated ${project.name}');
 		return true;
 	}
+
+	public function toString()
+	{
+		return 'EditorProject($name by $author)';
+	}
 }
