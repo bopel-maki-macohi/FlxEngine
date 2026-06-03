@@ -80,11 +80,24 @@ class StateScreenNode<T> extends StateNode
 
 	override function destroy()
 	{
-		super.destroy();
+		try
+		{
+			if (screens != null)
+				for (screen in screens)
+				{
+					if (screen == null)
+						return;
 
-		if (screens != null)
-			for (screen in screens)
-				screen.destroy();
+					screens.remove(screen);
+					screen.destroy();
+				}
+		}
+		catch (e)
+		{
+			trace(e);
+		}
+		
+		super.destroy();
 
 		#if debug
 		FlxG.watch.removeQuick('Current Screen');
