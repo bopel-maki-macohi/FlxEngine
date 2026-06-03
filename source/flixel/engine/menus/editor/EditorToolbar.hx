@@ -39,7 +39,7 @@ class EditorToolbar extends ToolbarNode
 		leaveIcon.color = FlxColor.RED;
 		leaveIcon.scrollFactor.set();
 
-		leaveIcon.x += watermarkText.width + 8;
+		leaveIcon.x += watermarkText.x + watermarkText.width + 8;
 	}
 
 	function onLeaveIconClicked(icon:ButtonSpriteNode)
