@@ -21,6 +21,14 @@ class EditorState extends StateScreenNode<EditorState>
 
 	public var screen_project:EditorLoadedProjectScreen;
 
+	override public function new(project:EditorProject = null)
+	{
+		super();
+
+		if (project != null)
+			this.project = project;
+	}
+
 	override function create()
 	{
 		toolbar = new EditorToolbar(FlxG.width);

@@ -67,7 +67,7 @@ class EditorToolbar extends ToolbarNode
 			case 'EditorState':
 				Sys.exit(0);
 			case 'PlayState':
-				FlxG.switchState(() -> new EditorState());
+				FlxG.switchState(() -> new EditorState(PlayState.project));
 		}
 	}
 
