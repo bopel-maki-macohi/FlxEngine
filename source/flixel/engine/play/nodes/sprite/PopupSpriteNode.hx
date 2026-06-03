@@ -22,6 +22,8 @@ class PopupSpriteNode extends ButtonIconSpriteNode
 		popup.x = FlxG.width - popup.width * 2;
 		popup.y = FlxG.height + popup.height * 2;
 
+		FlxG.sound.play(AssetPaths.audio(AssetPaths.getEditorPath('ui/sounds/popup')));
+
 		FlxTween.tween(popup, {y: FlxG.height - popup.height * 2, targetAlpha: 0}, 5, {
 			ease: FlxEase.backOut,
 			onComplete: t ->

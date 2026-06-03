@@ -2,6 +2,9 @@ package flixel.engine;
 
 class AssetPaths
 {
+	public static inline function audio(path:String):String
+		return '$path.wav';
+
 	public static inline function png(path:String):String
 		return '$path.png';
 
