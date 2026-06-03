@@ -10,7 +10,7 @@ class ScriptGroupNode
 	{
 		if (node == null)
 			return;
-		if (nodes.indexOf(node) < 0)
+		if (nodes.indexOf(node) > -1)
 			return;
 
 		node.call('onAddedToGroup');

@@ -42,6 +42,7 @@
 	<define name="lime_disable_assets_version" />
 	
 	<define name="hscriptPos" />
+	<define name="IRIS_DEBUG" if="debug" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 

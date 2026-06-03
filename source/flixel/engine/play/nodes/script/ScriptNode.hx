@@ -65,4 +65,9 @@ class ScriptNode extends Iris
 
 		return lines.join('\n');
 	}
+
+	public function toString()
+	{
+		return 'ScriptNode(${config.name})';
+	}
 }
