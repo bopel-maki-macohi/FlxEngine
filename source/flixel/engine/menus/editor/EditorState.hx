@@ -23,6 +23,7 @@ class EditorState extends StateScreenNode<EditorState>
 	override function create()
 	{
 		toolbar = new EditorToolbar(FlxG.width);
+		toolbar.y -= toolbar.height;
 
 		editorCamera = new FlxCamera();
 		FlxG.cameras.add(editorCamera, true);
