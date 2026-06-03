@@ -80,4 +80,11 @@ class ButtonNode extends FlxButton
 
 		return false;
 	}
+
+	override function destroy()
+	{
+		labelOffsets = [];
+
+		super.destroy();
+	}
 }
