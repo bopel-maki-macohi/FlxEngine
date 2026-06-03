@@ -15,6 +15,7 @@ class EditorToolbar extends ToolbarNode
 {
 	public var leaveIcon:ButtonIconSpriteNode;
 	public var githubIcon:ButtonIconSpriteNode;
+	public var reloadIcon:ButtonIconSpriteNode;
 
 	public var watermarkText:TextNode;
 
@@ -42,22 +43,26 @@ class EditorToolbar extends ToolbarNode
 		leaveIcon.color = FlxColor.RED;
 		leaveIcon.scrollFactor.set();
 
+		reloadIcon = new ButtonIconSpriteNode('toolbar/reload', 8, 8);
+
+		if (Constants.CURRENT_STATE == 'PlayState')
+			reloadIcon.onClicked = onReloadIconClicked;
+		else
+			reloadIcon.targetAlpha = 0.25;
+		reloadIcon.scrollFactor.set();
+
 		leaveIcon.x = _bg.width - (leaveIcon.width + 16);
 		githubIcon.x = leaveIcon.x - githubIcon.width - 16;
+		reloadIcon.x = githubIcon.x - reloadIcon.width - 16;
 
+		add(reloadIcon);
 		add(githubIcon);
 		add(leaveIcon);
 	}
 
 	function onLeaveIconClicked(icon:ButtonSpriteNode)
 	{
-		var state:String;
-
-		trace(state = Type.getClassName(Type.getClass(FlxG.state)).replace('.', '/'));
-		trace(Path.withoutDirectory(state));
-
-		// weird workaround but hey, functional is functional
-		switch (Path.withoutDirectory(state))
+		switch (Constants.CURRENT_STATE)
 		{
 			case 'EditorState':
 				Sys.exit(0);
@@ -69,6 +74,11 @@ class EditorToolbar extends ToolbarNode
 	function onGithubIconClicked(icon:ButtonSpriteNode)
 	{
 		FlxG.openURL('https://github.com/bopel-maki-macohi/FlxEngine');
+	}
+
+	function onReloadIconClicked(icon:ButtonSpriteNode)
+	{
+		FlxG.switchState(() -> new EditorState());
 	}
 
 	override function update(elapsed:Float)

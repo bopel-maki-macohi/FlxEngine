@@ -1,10 +1,8 @@
 package flixel.engine.util;
 
-import flixel.engine.editor.EditorProject;
-import flixel.engine.editor.EditorScreen;
-import flixel.engine.editor.EditorState;
-import flixel.engine.editor.EditorToolbar;
-import flixel.engine.play.PlayState;
+import haxe.io.Path;
+import flixel.engine.editor.*;
+import flixel.engine.play.*;
 import flixel.engine.play.nodes.button.*;
 import flixel.engine.play.nodes.event.*;
 import flixel.engine.play.nodes.event.ui.*;
@@ -14,6 +12,8 @@ import flixel.engine.play.nodes.state.*;
 import flixel.engine.play.nodes.state.screens.*;
 import flixel.engine.play.nodes.text.*;
 import flixel.engine.util.macros.Git;
+
+using StringTools;
 
 class Constants
 {
@@ -66,4 +66,13 @@ class Constants
 		EditorProject,
 		PlayState,
 	];
+
+	public static var CURRENT_STATE(get, never):String;
+
+	static function get_CURRENT_STATE():String
+	{
+		var state:String = Type.getClassName(Type.getClass(FlxG.state)).replace('.', '/');
+
+		return Path.withoutDirectory(state);
+	}
 }
