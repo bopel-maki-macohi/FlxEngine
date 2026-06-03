@@ -9,7 +9,14 @@ import flixel.math.FlxMath;
 
 class PlayState extends StateNode
 {
-	var project:EditorProject;
+	public static var project:EditorProject;
+
+	override function destroy()
+	{
+		super.destroy();
+
+		project = null;
+	}
 
 	var toolbar:EditorToolbar;
 
@@ -19,7 +26,7 @@ class PlayState extends StateNode
 	{
 		super();
 
-		this.project = project;
+		PlayState.project = project;
 	}
 
 	override function create()

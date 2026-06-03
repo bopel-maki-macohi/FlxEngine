@@ -78,7 +78,7 @@ class EditorToolbar extends ToolbarNode
 
 	function onReloadIconClicked(icon:ButtonSpriteNode)
 	{
-		FlxG.switchState(() -> new EditorState());
+		FlxG.switchState(() -> new PlayState(PlayState.project));
 	}
 
 	override function update(elapsed:Float)
