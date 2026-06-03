@@ -68,7 +68,6 @@ class Constants
 		PlayState,
 		//
 		// Aliases
-		ScriptFlxAxes,
 	];
 
 	public static var CURRENT_STATE(get, never):String;

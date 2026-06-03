@@ -1,9 +1,7 @@
 package flixel.engine.play.nodes.sprite;
 
-import flixel.engine.play.nodes.script.alias.ScriptFlxAxes;
 import flixel.engine.util.Constants;
 import flixel.system.FlxAssets.FlxGraphicAsset;
-import flixel.util.FlxAxes;
 
 class SpriteNode extends FlxSprite
 {
@@ -29,17 +27,5 @@ class SpriteNode extends FlxSprite
 
 		if (targetAlpha != null)
 			alpha = targetAlpha;
-	}
-
-	/**
-	 * Scripting alias for `screenCenter()`
-	 */
-	public function center(center_x:Bool = true, center_y:Bool = true)
-	{
-		if (center_x)
-			x = (FlxG.width - width) / 2;
-
-		if (center_y)
-			y = (FlxG.height - height) / 2;
 	}
 }
