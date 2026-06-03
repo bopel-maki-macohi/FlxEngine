@@ -1,4 +1,4 @@
-package flixel.engine.menus.editor;
+package flixel.engine.editor;
 
 import json2object.JsonParser;
 import json2object.JsonWriter;

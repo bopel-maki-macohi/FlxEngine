@@ -1,4 +1,4 @@
-package flixel.engine.menus.editor.screens.notloaded;
+package flixel.engine.editor.screens.notloaded;
 
 import flixel.engine.play.nodes.button.ButtonNode;
 import flixel.engine.play.nodes.text.InputLabelNode;

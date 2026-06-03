@@ -1,4 +1,4 @@
-package flixel.engine.menus.editor;
+package flixel.engine.editor;
 
 import haxe.io.Path;
 import flixel.engine.play.PlayState;

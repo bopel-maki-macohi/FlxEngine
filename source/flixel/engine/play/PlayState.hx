@@ -1,7 +1,7 @@
 package flixel.engine.play;
 
-import flixel.engine.menus.editor.EditorProject;
-import flixel.engine.menus.editor.EditorToolbar;
+import flixel.engine.editor.EditorProject;
+import flixel.engine.editor.EditorToolbar;
 import flixel.engine.play.nodes.state.StateNode;
 import flixel.math.FlxMath;
 

@@ -1,4 +1,4 @@
-package flixel.engine.menus.editor.screens.loaded;
+package flixel.engine.editor.screens.loaded;
 
 import haxe.io.Path;
 import sys.io.Process;

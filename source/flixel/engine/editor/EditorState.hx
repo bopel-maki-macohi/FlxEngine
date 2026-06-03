@@ -1,7 +1,7 @@
-package flixel.engine.menus.editor;
+package flixel.engine.editor;
 
-import flixel.engine.menus.editor.screens.loaded.*;
-import flixel.engine.menus.editor.screens.notloaded.*;
+import flixel.engine.editor.screens.loaded.*;
+import flixel.engine.editor.screens.notloaded.*;
 import flixel.engine.play.nodes.state.screens.StateScreenNode;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
