@@ -22,13 +22,6 @@ class EditorLoadProjectScreen extends EditorScreen
 	var cam:FlxCamera;
 	var camFollow:FlxObject;
 
-	override function destroy()
-	{
-		super.destroy();
-
-		FlxG.cameras.remove(cam);
-	}
-
 	override function create()
 	{
 		super.create();

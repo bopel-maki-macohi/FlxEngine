@@ -63,11 +63,4 @@ class EditorState extends StateScreenNode<EditorState>
 
 		toolbar.y = FlxMath.lerp(toolbar.y, ((FlxG.mouse.y < toolbar.height) ? 0 : -toolbar.height), 0.04);
 	}
-
-	override function destroy()
-	{
-		super.destroy();
-
-		FlxG.cameras.remove(editorCamera);
-	}
 }
