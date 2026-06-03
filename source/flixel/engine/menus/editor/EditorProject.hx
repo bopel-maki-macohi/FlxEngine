@@ -2,10 +2,10 @@ package flixel.engine.menus.editor;
 
 import json2object.JsonParser;
 import json2object.JsonWriter;
-import sys.FileSystem;
 import sys.io.File;
 import thx.semver.Version;
 import flixel.engine.util.Constants;
+import flixel.engine.util.FileUtil;
 import flixel.engine.util.VersionUtil;
 import flixel.engine.util.WindowUtil;
 
@@ -22,9 +22,6 @@ class EditorProject
 	@:default('0.1.0')
 	public var api_version:String;
 
-	@:jignored
-	public var loaded:Bool = false;
-
 	public function new()
 	{
 		this.api_version = Version.stringToVersion(Constants.VERSION).toString();
@@ -40,7 +37,7 @@ class EditorProject
 		var filteredName:String = project.toLowerCase();
 		var path = AssetPaths.json(AssetPaths.getProjectPath(filteredName, 'meta'));
 
-		if (!FileSystem.exists(path))
+		if (!FileUtil.fileExists(path))
 		{
 			WindowUtil.alert('Project doesn\'t exist: $filteredName');
 			return false;
@@ -95,7 +92,7 @@ class EditorProject
 
 		this.api_version = Version.stringToVersion(project.api_version).toString();
 
-		return loaded = true;
+		return true;
 	}
 
 	public static function addProject(project:EditorProject)
@@ -110,14 +107,13 @@ class EditorProject
 
 		var dir = AssetPaths.getProjectsPath(filteredName);
 
-		if (FileSystem.exists(dir))
+		if (FileUtil.directoryExists(dir))
 		{
 			WindowUtil.alert('Project already exists: $filteredName');
 			return;
 		}
 
-		if (!FileSystem.exists(dir))
-			FileSystem.createDirectory(dir);
+		FileUtil.createDirectryIfNotExists(dir);
 
 		if (updateProject(project))
 			trace('Added Project: $filteredName');
@@ -135,7 +131,7 @@ class EditorProject
 
 		var dir = AssetPaths.getProjectsPath(filteredName);
 
-		if (!FileSystem.exists(dir))
+		if (!FileUtil.directoryExists(dir))
 		{
 			WindowUtil.alert('Project doesn\'t exist: $filteredName');
 

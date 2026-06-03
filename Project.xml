@@ -37,7 +37,7 @@
 	-->
 	<error value="Platform unsupported" if="web || mobile" />
 
-	<log value="Version Rule checks are disabled" if="hl" />
+	<log value="VersionRule checks are disabled on this platform." if="hl" />
 
 	<define name="lime_disable_assets_version" />
 

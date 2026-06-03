@@ -1,13 +1,20 @@
 package flixel.engine.menus.editor.screens.loaded;
 
+import haxe.io.Path;
+import sys.io.Process;
 import flixel.engine.play.nodes.button.ButtonIconSpriteNode;
+import flixel.engine.play.nodes.button.ButtonNode;
 import flixel.engine.play.nodes.sprite.PopupSpriteNode;
 import flixel.engine.play.nodes.text.InputLabelNode;
 import flixel.engine.play.nodes.text.TextNode;
+import flixel.engine.util.FileUtil;
+import flixel.engine.util.WindowUtil;
 import flixel.text.FlxInputText.FlxInputTextChange;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
+
+using StringTools;
 
 class EditorLoadedProjectScreen extends EditorScreen
 {
@@ -20,6 +27,9 @@ class EditorLoadedProjectScreen extends EditorScreen
 
 	var projectAuthorInput:InputLabelNode;
 	var projectDescriptionInput:InputLabelNode;
+
+	var openProject:ButtonNode;
+	var closeProject:ButtonNode;
 
 	var autosaveTimer:FlxTimer;
 
@@ -42,6 +52,19 @@ class EditorLoadedProjectScreen extends EditorScreen
 		projectDescriptionInput.onTextChange.add(onDescriptionChange);
 
 		autosaveTimer = new FlxTimer();
+
+		openProject = new ButtonNode(0, 0, 'Open Project', onOpenProject);
+		add(openProject);
+		openProject.screenCenter();
+		openProject.x -= openProject.width * 2;
+
+		closeProject = new ButtonNode(0, 0, 'Close Project', onCloseProject);
+		add(closeProject);
+		closeProject.screenCenter();
+		closeProject.x += openProject.width * 2;
+
+		openProject.y += openProject.height * 2;
+		closeProject.y += closeProject.height * 2;
 	}
 
 	function onAuthorChange(text:String, change:FlxInputTextChange)
@@ -49,6 +72,24 @@ class EditorLoadedProjectScreen extends EditorScreen
 
 	function onDescriptionChange(text:String, change:FlxInputTextChange)
 		parent.project.description = text;
+
+	function onOpenProject()
+	{
+		final programPath = Sys.programPath();
+
+		var exePath:String = Path.directory(programPath);
+		final projectPath:String = '$exePath/${AssetPaths.getProjectsPath(parent.project.name)}/';
+
+		trace(projectPath);
+
+		FileUtil.openFolder(projectPath, false);
+	}
+
+	function onCloseProject()
+	{
+		parent.project = new EditorProject();
+		parent.setCurrentScreen(parent.screen_noProject.id);
+	}
 
 	override function onOpened()
 	{
@@ -84,16 +125,5 @@ class EditorLoadedProjectScreen extends EditorScreen
 		super.onClosed();
 
 		autosaveTimer.cancel();
-	}
-
-	override function update(elapsed:Float)
-	{
-		super.update(elapsed);
-
-		if (FlxG.keys.justPressed.ESCAPE)
-		{
-			parent.project = new EditorProject();
-			parent.setCurrentScreen(parent.screen_noProject.id);
-		}
 	}
 }

@@ -1,8 +1,8 @@
 package flixel.engine.menus.editor.screens.notloaded;
 
-import sys.FileSystem;
 import flixel.engine.play.nodes.button.ButtonLabelSpriteGroupNode;
 import flixel.engine.play.nodes.button.ButtonLabelSpriteNode;
+import flixel.engine.util.FileUtil;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
 
@@ -54,9 +54,9 @@ class EditorLoadProjectScreen extends EditorScreen
 	{
 		projects = [];
 
-		for (project in FileSystem.readDirectory(AssetPaths.getProjectsPath('')))
+		for (project in FileUtil.readDirectory(AssetPaths.getProjectsPath('')))
 		{
-			if (FileSystem.exists(AssetPaths.getProjectPath(project, 'meta.json')))
+			if (FileUtil.fileExists(AssetPaths.getProjectPath(project, 'meta.json')))
 				projects.push(project);
 		}
 

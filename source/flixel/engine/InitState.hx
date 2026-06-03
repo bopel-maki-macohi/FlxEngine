@@ -1,7 +1,7 @@
 package flixel.engine;
 
-import sys.FileSystem;
 import flixel.engine.menus.editor.EditorState;
+import flixel.engine.util.FileUtil;
 
 class InitState extends FlxState
 {
@@ -9,8 +9,7 @@ class InitState extends FlxState
 	{
 		super.create();
 
-		if (!FileSystem.exists(AssetPaths.getProjectsPath('')))
-			FileSystem.createDirectory(AssetPaths.getProjectsPath(''));
+		FileUtil.createDirectryIfNotExists(AssetPaths.getProjectsPath(''));
 
 		// #if NOTIFICATION_TEST
 		// FlxG.switchState(() -> new flixel.engine.menus.debug.NotificationTest());
