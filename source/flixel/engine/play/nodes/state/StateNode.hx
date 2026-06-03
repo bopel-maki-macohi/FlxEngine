@@ -1,3 +1,5 @@
 package flixel.engine.play.nodes.state;
 
-typedef StateNode = FlxState;
+import flixel.addons.transition.FlxTransitionableState;
+
+typedef StateNode = FlxTransitionableState;
