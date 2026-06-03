@@ -1,8 +1,12 @@
 package flixel.engine.play.nodes.script;
 
 import crowplexus.iris.Iris;
+import haxe.io.Path;
 import sys.io.File;
+import flixel.engine.util.Constants;
 import flixel.engine.util.FileUtil;
+
+using StringTools;
 
 class ScriptNode extends Iris
 {
@@ -13,7 +17,7 @@ class ScriptNode extends Iris
 		if (FileUtil.exists(filepath))
 		{
 			fileContent = File.getContent(filepath);
-            // trace(filepath);
+			// trace(filepath);
 		}
 
 		super(fileContent, {
@@ -26,6 +30,26 @@ class ScriptNode extends Iris
 		super.preset();
 
 		// init vars here
+
+		var classVars:Array<Dynamic> = [];
+
+		for (value in Constants.NODE_LIST)
+			classVars.push(value);
+
+		for (cls in classVars)
+		{
+			try
+			{
+				var clsStr = '$cls';
+				var clsName = clsStr.substr(clsStr.indexOf('$') + 1);
+
+				set(Path.withoutDirectory(clsName), cls);
+			}
+			catch (e)
+			{
+				trace('$cls : $e');
+			}
+		}
 	}
 
 	public static function getDefaultScript()
