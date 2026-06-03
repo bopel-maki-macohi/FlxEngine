@@ -28,4 +28,22 @@ class SpriteNode extends FlxSprite
 		if (targetAlpha != null)
 			alpha = targetAlpha;
 	}
+
+	/**
+	 * Scripting alias for `screenCenter(XY)`
+	 */
+	public function center()
+		screenCenter(XY);
+
+	/**
+	 * Scripting alias for `screenCenter(X)`
+	 */
+	public function centerX()
+		screenCenter(X);
+
+	/**
+	 * Scripting alias for `screenCenter(Y)`
+	 */
+	public function centerY()
+		screenCenter(Y);
 }
