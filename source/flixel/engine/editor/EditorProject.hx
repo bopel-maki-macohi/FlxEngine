@@ -51,6 +51,8 @@ class EditorProject
 		if (loadData(File.getContent(path)))
 		{
 			trace('Loaded Project: $filteredName');
+			updateProject(this);
+			
 			return true;
 		}
 		else
