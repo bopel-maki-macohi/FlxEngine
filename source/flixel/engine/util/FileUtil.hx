@@ -17,39 +17,34 @@ class FileUtil
 
 	public static inline function createDirectryIfNotExists(directory:String)
 	{
-		if (!directoryExists(directory))
-			createDirectry(directory);
+		if (!exists(directory))
+			createDirectory(directory);
 	}
 
-	public static inline function createDirectry(directory:String)
+	public static inline function createDirectory(directory:String)
 	{
 		if (directory == null || directory.trim().length < 1)
 			return;
 
-		FileSystem.createDirectory(Path.directory(directory));
+		FileSystem.createDirectory(directory);
 	}
 
-	public static inline function directoryExists(directory:String)
+	public static inline function exists(path:String)
 	{
-		return fileExists(Path.directory(directory));
-	}
-
-	public static inline function fileExists(file:String)
-	{
-		if (file == null || file.trim().length < 1)
+		if (path == null || path.trim().length < 1)
 			return false;
 		else
-			return FileSystem.exists(file);
+			return FileSystem.exists(path);
 	}
 
 	// yoinked from FNF V-Slice
 	public static function openFolder(pathFolder:String, createIfNotExists:Bool = true):Void
 	{
 		pathFolder = pathFolder.trim().replace('\\', '/');
-		if (!directoryExists(pathFolder))
+		if (!exists(pathFolder))
 		{
 			if (createIfNotExists)
-				createDirectry(pathFolder);
+				createDirectory(pathFolder);
 			else
 			{
 				trace('Path is not a directory: "$pathFolder"');

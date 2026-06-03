@@ -56,7 +56,7 @@ class EditorLoadProjectScreen extends EditorScreen
 
 		for (project in FileUtil.readDirectory(AssetPaths.getProjectsPath('')))
 		{
-			if (FileUtil.fileExists(AssetPaths.getProjectPath(project, 'meta.json')))
+			if (FileUtil.exists(AssetPaths.getProjectPath(project, 'meta.json')))
 				projects.push(project);
 		}
 

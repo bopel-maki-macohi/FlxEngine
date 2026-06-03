@@ -73,6 +73,7 @@ class EditorNewProjectScreen extends EditorScreen
 		generatedProject.name = projectNameInput.text;
 		generatedProject.author = projectAuthorInput.text;
 		generatedProject.description = projectDescriptionInput.text;
+		generatedProject.main = 'Main';
 
 		EditorProject.addProject(generatedProject);
 

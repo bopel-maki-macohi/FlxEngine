@@ -1,5 +1,6 @@
 package flixel.engine.editor;
 
+import haxe.Json;
 import json2object.JsonParser;
 import json2object.JsonWriter;
 import sys.io.File;
@@ -19,12 +20,16 @@ class EditorProject
 	public var author:String;
 	public var description:String;
 
-	@:default('0.1.0')
+	@:default('Main')
+	@:optional
+	public var main:String;
+
+	@:default(flixel.engine.util.Constants.VERSION)
 	public var api_version:String;
 
 	public function new()
 	{
-		this.api_version = Version.stringToVersion(Constants.VERSION).toString();
+		this.api_version = Constants.VERSION;
 	}
 
 	public function save():String
@@ -37,7 +42,7 @@ class EditorProject
 		var filteredName:String = project.toLowerCase();
 		var path = AssetPaths.json(AssetPaths.getProjectPath(filteredName, 'meta'));
 
-		if (!FileUtil.fileExists(path))
+		if (!FileUtil.exists(path))
 		{
 			WindowUtil.alert('Project doesn\'t exist: $filteredName');
 			return false;
@@ -78,6 +83,7 @@ class EditorProject
 			this.name = project.name;
 			this.author = project.author;
 			this.description = project.description;
+			this.main = project?.main ?? 'Main';
 		}
 
 		switch (apiversion.major)
@@ -107,13 +113,13 @@ class EditorProject
 
 		var dir = AssetPaths.getProjectsPath(filteredName);
 
-		if (FileUtil.directoryExists(dir))
+		if (FileUtil.exists(dir))
 		{
 			WindowUtil.alert('Project already exists: $filteredName');
 			return;
 		}
 
-		FileUtil.createDirectryIfNotExists(dir);
+		FileUtil.createDirectory(dir);
 
 		if (updateProject(project))
 			trace('Added Project: $filteredName');
@@ -131,7 +137,7 @@ class EditorProject
 
 		var dir = AssetPaths.getProjectsPath(filteredName);
 
-		if (!FileUtil.directoryExists(dir))
+		if (!FileUtil.exists(dir))
 		{
 			WindowUtil.alert('Project doesn\'t exist: $filteredName');
 
@@ -139,6 +145,12 @@ class EditorProject
 		}
 
 		File.saveContent(AssetPaths.json(AssetPaths.getProjectPath(filteredName, 'meta')), project.save());
+
+		var scriptPath = AssetPaths.script(AssetPaths.getProjectPath(filteredName, project.main ?? 'Main'));
+
+		if (!FileUtil.exists(scriptPath))
+			File.saveContent(scriptPath, '// Generated via FlxEngine v${Constants.VERSION_FULL} @ ${Date.now()} for project: "${project.name}"\n');
+
 		return true;
 	}
 }

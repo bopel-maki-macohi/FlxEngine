@@ -102,8 +102,8 @@ class EditorLoadedProjectScreen extends EditorScreen
 		projectLabel.screenCenter();
 		projectLabel.y = 0;
 
-		projectAuthorInput.text = parent.project.author;
-		projectDescriptionInput.text = parent.project.description;
+		projectAuthorInput.text = parent.project?.author ?? '';
+		projectDescriptionInput.text = parent.project?.description ?? '';
 
 		projectAuthorInput.screenCenter();
 		projectAuthorInput.y = projectLabel.y + projectAuthorInput.height;
