@@ -151,6 +151,7 @@ class EditorProject
 		if (!FileUtil.exists(scriptPath))
 			File.saveContent(scriptPath, '// Generated via FlxEngine v${Constants.VERSION_FULL} @ ${Date.now()} for project: "${project.name}"\n');
 
+		trace('Updated ${project.name}');
 		return true;
 	}
 }
