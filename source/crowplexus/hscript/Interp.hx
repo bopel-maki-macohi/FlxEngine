@@ -30,6 +30,7 @@ import crowplexus.hscript.Tools;
 import crowplexus.iris.Iris;
 import crowplexus.iris.IrisUsingClass;
 import crowplexus.iris.utils.UsingEntry;
+
 private enum Stop
 {
 	SBreak;
@@ -544,7 +545,7 @@ class Interp
 						var obj = expr(e);
 						if (obj == null)
 							if (!s)
-						        error(EInvalidAccess(f, 'Expr null and no ?.'));
+								error(EInvalidAccess(f, 'Expr null and no ?.'));
 						return fcall(obj, f, args);
 					default:
 						return call(null, expr(e), args);
