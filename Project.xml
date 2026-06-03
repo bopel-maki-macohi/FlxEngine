@@ -40,6 +40,8 @@
 	<log value="VersionRule checks are disabled on this platform." if="hl" />
 
 	<define name="lime_disable_assets_version" />
+	
+	<define name="hscriptPos" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
@@ -49,6 +51,8 @@
 	<haxelib name="json2object" />
 
 	<haxelib name="thx.semver" />
+
+	<haxelib name="hscript-iris" />
 
 	<!-- _________________________ Application Settings _________________________ -->
 

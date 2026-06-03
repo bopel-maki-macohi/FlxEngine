@@ -5,6 +5,7 @@ import json2object.JsonParser;
 import json2object.JsonWriter;
 import sys.io.File;
 import thx.semver.Version;
+import flixel.engine.play.nodes.script.ScriptNode;
 import flixel.engine.util.Constants;
 import flixel.engine.util.FileUtil;
 import flixel.engine.util.VersionUtil;
@@ -52,7 +53,7 @@ class EditorProject
 		{
 			trace('Loaded Project: $filteredName');
 			updateProject(this);
-			
+
 			return true;
 		}
 		else
@@ -151,7 +152,8 @@ class EditorProject
 		var scriptPath = AssetPaths.script(AssetPaths.getProjectPath(filteredName, project.main ?? 'Main'));
 
 		if (!FileUtil.exists(scriptPath))
-			File.saveContent(scriptPath, '// Generated via FlxEngine v${Constants.VERSION_FULL} @ ${Date.now()} for project: "${project.name}"\n');
+			File.saveContent(scriptPath,
+				'// Generated via FlxEngine v${Constants.VERSION_FULL} @ ${Date.now()} for project: "${project.name}"\n' + ScriptNode.getDefaultScript());
 
 		trace('Updated ${project.name}');
 		return true;
