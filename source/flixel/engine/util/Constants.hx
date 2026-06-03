@@ -7,6 +7,7 @@ import flixel.engine.play.nodes.button.*;
 import flixel.engine.play.nodes.event.*;
 import flixel.engine.play.nodes.event.ui.*;
 import flixel.engine.play.nodes.script.*;
+import flixel.engine.play.nodes.script.alias.*;
 import flixel.engine.play.nodes.sprite.*;
 import flixel.engine.play.nodes.state.*;
 import flixel.engine.play.nodes.state.screens.*;
@@ -65,6 +66,9 @@ class Constants
 		EditorScreen,
 		EditorProject,
 		PlayState,
+		//
+		// Aliases
+		ScriptFlxAxes,
 	];
 
 	public static var CURRENT_STATE(get, never):String;

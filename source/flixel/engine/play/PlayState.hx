@@ -46,7 +46,6 @@ class PlayState extends StateNode
 
 		scripts.add(new ScriptNode(AssetPaths.script(AssetPaths.getProjectPath(project?.name, project?.main ?? 'Main'))));
 
-		add(toolbar);
 		toolbar.y -= toolbar.height;
 
 		scripts.call('onCreate', []);
@@ -59,5 +58,16 @@ class PlayState extends StateNode
 		toolbar.y = FlxMath.lerp(toolbar.y, ((FlxG.mouse.y < toolbar.height) ? 0 : -toolbar.height), 0.04);
 
 		scripts.call('onUpdate', [elapsed]);
+	}
+
+	override function draw()
+	{
+		super.draw();
+
+		if (toolbar != null && toolbar.visible)
+		{
+			toolbar.cameras = _cameras;
+			toolbar.draw();
+		}
 	}
 }

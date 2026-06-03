@@ -1,7 +1,9 @@
 package flixel.engine.play.nodes.sprite;
 
+import flixel.engine.play.nodes.script.alias.ScriptFlxAxes;
 import flixel.engine.util.Constants;
 import flixel.system.FlxAssets.FlxGraphicAsset;
+import flixel.util.FlxAxes;
 
 class SpriteNode extends FlxSprite
 {
@@ -30,20 +32,14 @@ class SpriteNode extends FlxSprite
 	}
 
 	/**
-	 * Scripting alias for `screenCenter(XY)`
+	 * Scripting alias for `screenCenter()`
 	 */
-	public function center()
-		screenCenter(XY);
+	public function center(center_x:Bool = true, center_y:Bool = true)
+	{
+		if (center_x)
+			x = (FlxG.width - width) / 2;
 
-	/**
-	 * Scripting alias for `screenCenter(X)`
-	 */
-	public function centerX()
-		screenCenter(X);
-
-	/**
-	 * Scripting alias for `screenCenter(Y)`
-	 */
-	public function centerY()
-		screenCenter(Y);
+		if (center_y)
+			y = (FlxG.height - height) / 2;
+	}
 }
