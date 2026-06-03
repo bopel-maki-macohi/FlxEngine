@@ -1,7 +1,7 @@
 package flixel.engine.play.nodes.state.screens;
 
-import flixel.engine.play.events.FlxEngineEvent;
-import flixel.engine.play.events.ui.ScreenChangeEvent;
+import flixel.engine.play.nodes.event.EventSignalNode;
+import flixel.engine.play.nodes.event.ui.ScreenChangeEventNode;
 import flixel.group.FlxContainer.FlxTypedContainer;
 
 class StateScreenNode<T> extends StateNode
@@ -26,14 +26,14 @@ class StateScreenNode<T> extends StateNode
 		FlxG.watch.addQuick('Current Screen', newScreen.toLowerCase());
 		#end
 
-		onScreenChange.dispatch(new ScreenChangeEvent({
+		onScreenChange.dispatch(new ScreenChangeEventNode({
 			previousScreen: this.currentScreen,
 			newScreen: newScreen.toLowerCase(),
 		}));
 		return newScreen.toLowerCase();
 	}
 
-	public var onScreenChange:FlxEngineEventSignal<ScreenChangeEventData> = new FlxEngineEventSignal<ScreenChangeEventData>();
+	public var onScreenChange:EventSignalNode<ScreenChangeEventData> = new EventSignalNode<ScreenChangeEventData>();
 
 	public function setCurrentScreen(newScreen:String):Void
 	{

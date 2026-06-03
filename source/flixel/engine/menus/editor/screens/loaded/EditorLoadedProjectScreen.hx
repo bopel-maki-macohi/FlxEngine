@@ -2,6 +2,7 @@ package flixel.engine.menus.editor.screens.loaded;
 
 import haxe.io.Path;
 import sys.io.Process;
+import flixel.engine.play.PlayState;
 import flixel.engine.play.nodes.button.ButtonIconSpriteNode;
 import flixel.engine.play.nodes.button.ButtonNode;
 import flixel.engine.play.nodes.sprite.PopupSpriteNode;
@@ -29,6 +30,7 @@ class EditorLoadedProjectScreen extends EditorScreen
 	var projectDescriptionInput:InputLabelNode;
 
 	var openProject:ButtonNode;
+	var playProject:ButtonNode;
 	var closeProject:ButtonNode;
 
 	var autosaveTimer:FlxTimer;
@@ -55,16 +57,12 @@ class EditorLoadedProjectScreen extends EditorScreen
 
 		openProject = new ButtonNode(0, 0, 'Open Project', onOpenProject);
 		add(openProject);
-		openProject.screenCenter();
-		openProject.x -= openProject.width * 2;
 
 		closeProject = new ButtonNode(0, 0, 'Close Project', onCloseProject);
 		add(closeProject);
-		closeProject.screenCenter();
-		closeProject.x += openProject.width * 2;
 
-		openProject.y += openProject.height * 2;
-		closeProject.y += closeProject.height * 2;
+		playProject = new ButtonNode(0, 0, 'Play Project', onPlayProject);
+		add(playProject);
 	}
 
 	function onAuthorChange(text:String, change:FlxInputTextChange)
@@ -91,6 +89,11 @@ class EditorLoadedProjectScreen extends EditorScreen
 		parent.setCurrentScreen(parent.screen_noProject.id);
 	}
 
+	function onPlayProject()
+	{
+		FlxG.switchState(() -> new PlayState(parent.project));
+	}
+
 	override function onOpened()
 	{
 		super.onOpened();
@@ -107,6 +110,18 @@ class EditorLoadedProjectScreen extends EditorScreen
 
 		projectDescriptionInput.screenCenter();
 		projectDescriptionInput.y = projectAuthorInput.y + projectAuthorInput.height;
+
+		openProject.screenCenter();
+		openProject.x -= openProject.width * 2;
+
+		closeProject.screenCenter();
+		closeProject.x += openProject.width * 2;
+
+		playProject.screenCenter();
+
+		openProject.y = projectDescriptionInput.y + projectDescriptionInput.height + (openProject.height * 2);
+		closeProject.y = projectDescriptionInput.y + projectDescriptionInput.height + (closeProject.height * 2);
+		playProject.y = projectDescriptionInput.y + projectDescriptionInput.height + (playProject.height * 2);
 
 		autosaveTimer.start(30, t ->
 		{

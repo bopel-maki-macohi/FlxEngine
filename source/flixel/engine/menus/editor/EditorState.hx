@@ -22,15 +22,7 @@ class EditorState extends StateScreenNode<EditorState>
 
 	override function create()
 	{
-		// @:privateAccess {
-		// 	watermarkText._regen = true;
-		// 	watermarkText.regenGraphic();
-
-		// 	trace(watermarkText.textField);
-		// 	trace(watermarkText.textField.width);
-		// }
-
-		toolbar = new EditorToolbar(this, FlxG.width);
+		toolbar = new EditorToolbar(FlxG.width);
 
 		editorCamera = new FlxCamera();
 		FlxG.cameras.add(editorCamera, true);

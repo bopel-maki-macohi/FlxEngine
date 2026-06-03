@@ -49,6 +49,11 @@ class ToolbarNode extends SpriteGroupNode
 
 	function get_bottom():Float
 	{
-		return y + ((height > _bg.height) ? height : _bg.height);
+		return y + height;
+	}
+
+	override function get_height():Float
+	{
+		return ((super.get_height() > _bg.height) ? super.get_height() : _bg.height);
 	}
 }
