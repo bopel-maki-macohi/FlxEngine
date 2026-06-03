@@ -24,6 +24,14 @@ class ToolbarNode extends SpriteGroupNode
 
 	public function create() {}
 
+	override function update(elapsed:Float)
+	{
+		_bg.x = this.x;
+		_bg.y = this.y;
+
+		super.update(elapsed);
+	}
+
 	override function draw()
 	{
 		if (_bg != null && _bg.visible)
