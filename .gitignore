@@ -2,4 +2,7 @@ export/
 dump/
 .haxelib/
 
+# I'm just putting official projects in here
+assets/projects/
+
 .DS_Store
