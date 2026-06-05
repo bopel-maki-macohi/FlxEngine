@@ -30,7 +30,7 @@ class EditorToolbar extends ToolbarNode
 	{
 		super.create();
 
-		watermarkText = new TextNode(0, 24, 'FlxEngine v${Constants.VERSION_FULL}', 16);
+		watermarkText = new TextNode(0, 24, 'FlxEngine ${Constants.VERSION_FULL}', 16);
 		watermarkText.y = watermarkText.height / 2;
 		watermarkText.scrollFactor.set();
 
